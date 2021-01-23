@@ -1,0 +1,21 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  grid-area: h;
+  background: rgba( 255, 255, 255, 0.25 );
+  box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+  backdrop-filter: blur( 4px );
+  -webkit-backdrop-filter: blur( 4px );
+  border-radius: 10px;
+  margin-bottom: 10px;
+
+  -webkit-box-shadow: 10px 10px 23px 0px rgba(0,0,0,0.45);
+  -moz-box-shadow: 10px 10px 23px 0px rgba(0,0,0,0.45);
+  box-shadow: 10px 10px 23px 0px rgba(0,0,0,0.45);
+}
+.img {
+  margin-left: 10px;
+  width: 50px;
+  border-radius: 50%;
+}
