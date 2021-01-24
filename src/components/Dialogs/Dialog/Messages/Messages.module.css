@@ -1,0 +1,7 @@
+.message_wrapper {
+    display: flex;
+    height: 500px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
