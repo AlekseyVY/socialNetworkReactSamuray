@@ -2,7 +2,7 @@ import styles from "./Post.module.css";
 import postImg from "./../../../../resources/img/sec-prof.png";
 
 
-const Post = () => {
+const Post = ({ text }) => {
 
     return (
         <div className={styles.post}>
@@ -10,7 +10,7 @@ const Post = () => {
                 <img className={styles.post_img} src={postImg} alt="post" />
             </div>
             <div>
-                This is first generic post.
+                {text}
             </div>
         </div>
     )

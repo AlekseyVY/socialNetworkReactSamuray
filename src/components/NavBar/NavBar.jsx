@@ -6,10 +6,11 @@ const NavBar = () => {
 
   return (
     <nav className={styles.nav}>
-      <NavButton />
-      <NavButton />
-      <NavButton />
-      <NavButton />
+      <NavButton text={'Profile'}/>
+      <NavButton text={'Messages'}/>
+      <NavButton text={'News'}/>
+      <NavButton text={'Music'}/>
+      <NavButton text={'Settings'}/>
     </nav>
   )
 }

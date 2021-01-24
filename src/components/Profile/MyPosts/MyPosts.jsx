@@ -13,8 +13,8 @@ const MyPosts = () => {
                 <Form />
             </div>
             <div className={styles.post_area}>
-                <Post />
-                <Post />
+                <Post text={'This is my first generic post.'}/>
+                <Post text={'This is my second generic post.'}/>
             </div>
         </>
     )

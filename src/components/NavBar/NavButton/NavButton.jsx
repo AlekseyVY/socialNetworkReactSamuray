@@ -1,11 +1,11 @@
 import styles from "./NavButton.module.css";
 
 
-const NavButton = () => {
+const NavButton = ({ text }) => {
 
     return (
         <div>
-            <a className={styles.item} href='#s'>Settings</a>
+            <a className={styles.item} href='#s'>{text}</a>
         </div>
     )
 }
