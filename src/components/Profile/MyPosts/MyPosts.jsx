@@ -4,12 +4,7 @@ import Post from "./Post/Post";
 import Form from "./Form/Form";
 
 
-const MyPosts = () => {
-
-    const posts = [
-        {id: 1, message: 'This is my first generic post', likesCount: 0},
-        {id: 2, message: 'This is my second generic post', likesCount: 45}
-    ]
+const MyPosts = ({ posts }) => {
 
     return (
         <>

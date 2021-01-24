@@ -3,30 +3,7 @@ import Dialog from "./Dialog/Dialog";
 import Messages from "./Dialog/Messages/Messages";
 
 
-const Dialogs = (props) => {
-    const data = [
-        {
-            id: 1,
-            name: 'Aleksey'
-        },
-        {
-            id: 2,
-            name: 'Kirill'
-        },
-        {
-            id: 3,
-            name: 'Valera'
-        },
-        {
-            id: 4,
-            name: 'BoevoyWertolet'
-        },
-        {
-            id: 5,
-            name: 'Ololosh'
-        }
-    ]
-
+const Dialogs = ({ data, messageData }) => {
 
     return (
         <div className={styles.dialogs}>
@@ -40,7 +17,7 @@ const Dialogs = (props) => {
                 }
             </div>
             <div>
-                <Messages/>
+                <Messages messageData={messageData}/>
             </div>
         </div>
     )
