@@ -10,10 +10,10 @@ const Dialogs = (props) => {
     return(
             <div className={styles.dialogs}>
                 <div>
-                    <Dialog text={'Aleksey'} src={'/dialogs/Aleksey'}/>
-                    <Dialog text={'Kirill'} src={'/dialogs/Kirill'}/>
-                    <Dialog text={'Valera'} src={'/dialogs/Valera'}/>
-                    <Dialog text={'BoevoyWertolet'} src={'/dialogs/BoevoyWertolet'}/>
+                    <Dialog text={'Aleksey'} src={'/dialogs/id:1'}/>
+                    <Dialog text={'Kirill'} src={'/dialogs/id:2'}/>
+                    <Dialog text={'Valera'} src={'/dialogs/id:3'}/>
+                    <Dialog text={'BoevoyWertolet'} src={'/dialogs/id:4'}/>
                 </div>
                 <div>
                     <Messages />
