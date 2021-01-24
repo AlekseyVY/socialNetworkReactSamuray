@@ -6,6 +6,11 @@ import Form from "./Form/Form";
 
 const MyPosts = () => {
 
+    const posts = [
+        {id: 1, message: 'This is my first generic post.', likesCount: 0},
+        {id: 2, message: 'This is my second generic post.', likesCount: 45}
+    ]
+
     return (
         <>
             <div className={styles.create_post}>
@@ -13,8 +18,13 @@ const MyPosts = () => {
                 <Form />
             </div>
             <div className={styles.post_area}>
-                <Post text={'This is my first generic post.'}/>
-                <Post text={'This is my second generic post.'}/>
+                {
+                    posts.map((ele) => {
+                        return (
+                            <Post text={ele.message} id={ele.id} likes={ele.likesCount}/>
+                        )
+                    })
+                }
             </div>
         </>
     )

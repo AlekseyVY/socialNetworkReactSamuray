@@ -1,24 +1,48 @@
 import styles from './Dialogs.module.css'
 import Dialog from "./Dialog/Dialog";
-import {BrowserRouter} from "react-router-dom";
 import Messages from "./Dialog/Messages/Messages";
 
 
-
 const Dialogs = (props) => {
+    const data = [
+        {
+            id: 1,
+            name: 'Aleksey'
+        },
+        {
+            id: 2,
+            name: 'Kirill'
+        },
+        {
+            id: 3,
+            name: 'Valera'
+        },
+        {
+            id: 4,
+            name: 'BoevoyWertolet'
+        },
+        {
+            id: 5,
+            name: 'Ololosh'
+        }
+    ]
 
-    return(
-            <div className={styles.dialogs}>
-                <div>
-                    <Dialog text={'Aleksey'} src={'1'}/>
-                    <Dialog text={'Kirill'} src={'2'}/>
-                    <Dialog text={'Valera'} src={'3'}/>
-                    <Dialog text={'BoevoyWertolet'} src={'4'}/>
-                </div>
-                <div>
-                    <Messages />
-                </div>
+
+    return (
+        <div className={styles.dialogs}>
+            <div>
+                {
+                    data.map((element) => {
+                        return (
+                            <Dialog text={element.name} src={element.id}/>
+                        )
+                    })
+                }
             </div>
+            <div>
+                <Messages/>
+            </div>
+        </div>
     )
 }
 

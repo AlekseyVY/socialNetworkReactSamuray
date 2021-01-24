@@ -2,7 +2,7 @@ import styles from "./Post.module.css";
 import postImg from "./../../../../resources/img/sec-prof.png";
 
 
-const Post = ({ text }) => {
+const Post = ({ text, id, likes }) => {
 
     return (
         <div className={styles.post}>
@@ -11,6 +11,9 @@ const Post = ({ text }) => {
             </div>
             <div>
                 {text}
+            </div>
+            <div className={styles.likes}>
+                likes: {likes}
             </div>
         </div>
     )

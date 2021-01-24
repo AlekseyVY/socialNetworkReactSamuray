@@ -4,6 +4,9 @@
     display: flex;
     align-items: center;
     font-size: 23px;
+    flex-wrap: wrap;
+    border-bottom: 1px solid black;
+    width: 800px;
 }
 
 .post_img {
@@ -11,4 +14,8 @@
     height: 50px;
     opacity: 100;
     margin-right: 30px;
+}
+
+.likes {
+    flex-basis: 100%;
 }
