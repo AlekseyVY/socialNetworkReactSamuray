@@ -7,13 +7,13 @@ import WallPaper from "./Wallpaper/WallPaper";
 
 const Profile = () => {
 
-  return (
-      <div className={styles.container}>
-          <WallPaper />
-          <Character />
-          <MyPosts />
-      </div>
-  )
+    return (
+        <>
+            <WallPaper/>
+            <Character/>
+            <MyPosts/>
+        </>
+    )
 }
 
 export default Profile
