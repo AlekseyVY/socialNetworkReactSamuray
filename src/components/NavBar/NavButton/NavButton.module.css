@@ -1,0 +1,11 @@
+
+.item {
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 10px 25px;
+}
+.item:hover {
+    background-color: blueviolet;
+    border: none;
+    color: aliceblue;
+}

@@ -1,0 +1,15 @@
+.h3 {
+    font-size: 36px;
+}
+
+.p {
+    margin: 0;
+    font-size: 23px;
+}
+
+.description {
+    margin-left: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}

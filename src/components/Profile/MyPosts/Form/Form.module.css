@@ -1,0 +1,28 @@
+
+.create_form {
+    width: 100%;
+}
+
+.form {
+    width: 100%;
+    display: flex;
+}
+
+.input {
+    width: 80%;
+    height: 50px;
+    border: 1px solid black;
+    padding: 0px;
+    outline-style: none;
+    background-color: beige;
+    font-size: 23px;
+    padding-left: 10px;
+}
+
+.button {
+    border-left: none;
+    border: 1px solid black;
+    padding: 0px;
+    width: 15%;
+    height: 52px;
+}
