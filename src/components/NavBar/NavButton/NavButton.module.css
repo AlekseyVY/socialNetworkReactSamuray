@@ -3,9 +3,22 @@
     border: 1px solid black;
     border-radius: 10px;
     padding: 10px 25px;
+
+    -webkit-box-shadow: 10px 10px 23px 0px rgba(0,0,0,0.45);
+    -moz-box-shadow: 10px 10px 23px 0px rgba(0,0,0,0.45);
+    box-shadow: 10px 10px 23px 0px rgba(0,0,0,0.45);
+
+    color: black;
+    text-decoration: none;
 }
 .item:hover {
-    background-color: blueviolet;
+    background-color: black;
+    border: none;
+    color: aliceblue;
+}
+
+.active {
+    background-color: black;
     border: none;
     color: aliceblue;
 }

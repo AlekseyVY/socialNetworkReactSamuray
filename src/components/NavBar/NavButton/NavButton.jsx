@@ -1,11 +1,12 @@
 import styles from "./NavButton.module.css";
+import {NavLink} from "react-router-dom";
 
 
 const NavButton = ({ text, src }) => {
 
     return (
         <div>
-            <a className={styles.item} href={src}>{text}</a>
+            <NavLink activeClassName={styles.active} className={styles.item} to={src}>{text}</NavLink>
         </div>
     )
 }
