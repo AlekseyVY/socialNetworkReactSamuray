@@ -5,13 +5,12 @@ import Character from "./Character/Character";
 import WallPaper from "./Wallpaper/WallPaper";
 
 
-const Profile = ( {data} ) => {
-
+const Profile = ( {props} ) => {
     return (
         <>
             <WallPaper/>
             <Character/>
-            <MyPosts posts={data}/>
+            <MyPosts posts={props.posts}/>
         </>
     )
 }
