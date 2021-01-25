@@ -1,5 +1,6 @@
 import styles from './Messages.module.css'
 import Message from "./Message/Message";
+import Form from "../../../Profile/MyPosts/Form/Form";
 
 
 
@@ -15,7 +16,7 @@ const Messages = ( { messageData } ) => {
                     )
                 })
             }
-
+            <Form />
         </div>
     )
 }
