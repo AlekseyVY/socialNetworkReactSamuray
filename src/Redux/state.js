@@ -6,7 +6,8 @@ let state = {
         posts: [
             {id: 1, message: 'This is my first generic post', likesCount: 0},
             {id: 2, message: 'This is my second generic post', likesCount: 45}
-        ]
+        ],
+        newPostText: ''
     },
     messagesPage: {
         messageData: [
@@ -32,13 +33,18 @@ let state = {
     }
 }
 
-export const addPost = (postMessage) => {
+export const addPost = () => {
     let newPost = {
         id: 5,
-        message: postMessage,
+        message: state.profilePage.newPostText,
         likesCount: 0
     }
     state.profilePage.posts.push(newPost)
+    rerenderDOM()
+}
+
+export const updatePostText = (data) => {
+    state.profilePage.newPostText = data
     rerenderDOM()
 }
 
