@@ -1,4 +1,6 @@
-import { rerenderDOM } from "./render";
+let rerenderDOM = () => {
+    console.log('state is changed')
+}
 
 
 let state = {
@@ -17,6 +19,7 @@ let state = {
             {id: 4, message: 'generic message number four'},
             {id: 5, message: 'generic message number five'},
         ],
+        newMessage: '',
         dialogs: [
             {id: 1, name: 'Aleksey'},
             {id: 2, name: 'Kirill'},
@@ -33,6 +36,20 @@ let state = {
     }
 }
 
+export const addDialog = () => {
+    let newDialog = {
+        id: 6,
+        message: state.messagesPage.newMessage
+    }
+    state.messagesPage.messageData.push(newDialog)
+    rerenderDOM()
+}
+
+export const updateDialogText = (data) => {
+    state.messagesPage.newMessage = data;
+    rerenderDOM()
+}
+
 export const addPost = () => {
     let newPost = {
         id: 5,
@@ -46,6 +63,10 @@ export const addPost = () => {
 export const updatePostText = (data) => {
     state.profilePage.newPostText = data
     rerenderDOM()
+}
+
+export const subscribe = (observer) => {
+    rerenderDOM = observer
 }
 
 export default state;

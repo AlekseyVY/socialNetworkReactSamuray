@@ -3,6 +3,7 @@ import React from "react";
 
 
 const Form = ({ addPost, newPostText, updatePostText }) => {
+
     let newPostElement = React.createRef()
 
     const addPosts = (event) => {
@@ -14,6 +15,7 @@ const Form = ({ addPost, newPostText, updatePostText }) => {
     const onPostChange = () => {
         let text = newPostElement.current.value
         updatePostText(text)
+        console.log(newPostText)
     }
 
     return (

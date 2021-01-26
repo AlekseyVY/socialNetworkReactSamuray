@@ -3,7 +3,8 @@ import Dialog from "./Dialog/Dialog";
 import Messages from "./Dialog/Messages/Messages";
 
 
-const Dialogs = ({ props }) => {
+const Dialogs = ({ props, updateDialogText, addDialog }) => {
+
 
     return (
         <div className={styles.dialogs}>
@@ -17,7 +18,7 @@ const Dialogs = ({ props }) => {
                 }
             </div>
             <div>
-                <Messages messageData={props.messageData}/>
+                <Messages messageData={props.messageData} newMessage={props.newMessage} updateDialogText={updateDialogText} addDialog={addDialog}/>
             </div>
         </div>
     )

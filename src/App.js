@@ -8,7 +8,7 @@ import News from "./components/News/News";
 import Music from "./components/Music/Music";
 import Settings from "./components/Settings/Settings";
 
-const App = ({ state, addPost, updatePostText }) => {
+const App = ({ state, addPost, updatePostText, addDialog, updateDialogText }) => {
 
     return (
         <BrowserRouter>
@@ -18,7 +18,7 @@ const App = ({ state, addPost, updatePostText }) => {
                 <div className={styles.container}>
                     <Route
                         path={'/dialogs'}
-                        render={() => <Dialogs props={state.messagesPage}/>}
+                        render={() => <Dialogs props={state.messagesPage} addDialog={addDialog} updateDialogText={updateDialogText}/>}
                     />
                     <Route
                         path={'/profile'}

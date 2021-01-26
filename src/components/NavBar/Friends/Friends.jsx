@@ -4,7 +4,7 @@ import Friend from "./Friend/Friend";
 
 
 const Friends = ({ state }) => {
-    console.log(state)
+
     return (
         <div className={styles.logo}>
             <div>

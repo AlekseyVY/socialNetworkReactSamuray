@@ -5,7 +5,7 @@ import Form from "../../../Profile/MyPosts/Form/Form";
 
 
 
-const Messages = ( { messageData } ) => {
+const Messages = ( { messageData, updateDialogText, addDialog, newMessage } ) => {
 
     return (
         <div className={styles.message_wrapper}>
@@ -16,7 +16,7 @@ const Messages = ( { messageData } ) => {
                     )
                 })
             }
-            <Form />
+            <Form updatePostText={updateDialogText} addPost={addDialog} newPostText={newMessage}/>
         </div>
     )
 }
