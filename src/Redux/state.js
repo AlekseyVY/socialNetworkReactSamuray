@@ -1,3 +1,7 @@
+const ADD_POST = 'ADD-POST';
+const UPDATE_NEW_TEXT = 'UPDATE-NEW-TEXT';
+const ADD_DIALOG =  'ADD-DIALOG';
+const UPDATE_NEW_DIALOG = 'UPDATE-NEW-DIALOG';
 
 let store = {
     state: {
@@ -42,7 +46,7 @@ let store = {
     },
 
     dispatch(action) {
-        if(action.type === 'ADD-POST'){
+        if(action.type === ADD_POST){
             let newPost = {
                 id: 5,
                 message: this.state.profilePage.newPostText,
@@ -50,21 +54,29 @@ let store = {
             }
             this.state.profilePage.posts.push(newPost)
             this.rerenderDOM()
-        } else if(action.type === 'UPDATE-NEW-TEXT'){
+        } else if(action.type === UPDATE_NEW_TEXT){
             this.state.profilePage.newPostText = action.data
             this.rerenderDOM()
-        } else if(action.type === 'ADD-DIALOG'){
+        } else if(action.type === ADD_DIALOG){
             let newDialog = {
                 id: 6,
                 message: this.state.messagesPage.newMessage
             }
             this.state.messagesPage.messageData.push(newDialog)
             this.rerenderDOM()
-        } else if(action.type === 'UPDATE-NEW-DIALOG'){
+        } else if(action.type === UPDATE_NEW_DIALOG){
             this.state.messagesPage.newMessage = action.data;
             this.rerenderDOM()
         }
     }
+}
+
+export const formAction = (type, data = '') => {
+    return (
+        {
+            type: type,
+            data: data
+        })
 }
 
 export default store;

@@ -1,5 +1,8 @@
 import styles from "./Form.module.css";
 import React from "react";
+import {formAction} from "../../Redux/state";
+
+
 
 
 const Form = ({ newPostText, buttonAction, textAction, dispatch }) => {
@@ -9,22 +12,13 @@ const Form = ({ newPostText, buttonAction, textAction, dispatch }) => {
 
     const addPosts = (event) => {
         event.preventDefault()
-        dispatch({
-            type: buttonAction,
-            data: newPostText
-        })
-        dispatch({
-            type: textAction,
-            data: ''
-        })
+        dispatch(formAction(buttonAction, newPostText))
+        dispatch(formAction(textAction))
     }
 
     const onPostChange = () => {
         let text = newPostElement.current.value
-        dispatch({
-            type: textAction,
-            data: text
-        })
+        dispatch(formAction(textAction, text))
     }
 
     return (

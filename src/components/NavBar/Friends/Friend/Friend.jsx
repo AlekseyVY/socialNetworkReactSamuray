@@ -1,5 +1,5 @@
 import styles from './Friend.module.css'
-import placeholderImg from './../../../../resources/img/original.jpg'
+import placeholderImg from './../../../../resources/img/main-prof.jpg'
 
 
 const Friend = ({ state }) => {
