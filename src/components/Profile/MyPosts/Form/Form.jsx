@@ -2,14 +2,13 @@ import styles from "./Form.module.css";
 import React from "react";
 
 
-const Form = () => {
-
+const Form = ({ addPost }) => {
     let newPostElement = React.createRef()
 
-    const addPost = (event) => {
+    const addPosts = (event) => {
         event.preventDefault()
         let text = newPostElement.current.value
-        alert(text)
+        addPost(text)
         newPostElement.current.value = ''
     }
 
@@ -17,7 +16,7 @@ const Form = () => {
         <div className={styles.create_form}>
             <form className={styles.form}>
                 <input ref={newPostElement} className={styles.input} />
-                <button onClick={addPost} className={styles.button}>send</button>
+                <button onClick={addPosts} className={styles.button}>send</button>
             </form>
         </div>
     )

@@ -4,13 +4,12 @@ import Post from "./Post/Post";
 import Form from "./Form/Form";
 
 
-const MyPosts = ({ posts }) => {
-
+const MyPosts = ({ posts, addPost }) => {
     return (
         <>
             <div className={styles.create_post}>
                 <h3>My posts</h3>
-                <Form />
+                <Form addPost={addPost}/>
             </div>
             <div className={styles.post_area}>
                 {
