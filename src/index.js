@@ -1,17 +1,17 @@
 import React from 'react'
 import ReactDOM from "react-dom";
 import App from "./App";
-import state, {addPost, updatePostText, addDialog, updateDialogText, subscribe} from "./Redux/state";
+import store from "./Redux/state";
 
 
 export const rerenderDOM = () => {
     ReactDOM.render(
         <React.StrictMode>
-            <App state={state}
-                 addPost={addPost}
-                 updatePostText={updatePostText}
-                 addDialog={addDialog}
-                 updateDialogText={updateDialogText}
+            <App state={store.getState()}
+                 addPost={store.addPost.bind(store)}
+                 updatePostText={store.updatePostText.bind(store)}
+                 addDialog={store.addDialog.bind(store)}
+                 updateDialogText={store.updateDialogText.bind(store)}
             />
         </React.StrictMode>,
         document.getElementById('root')
@@ -20,4 +20,4 @@ export const rerenderDOM = () => {
 }
 
 rerenderDOM()
-subscribe(rerenderDOM)
+store.subscribe(rerenderDOM)

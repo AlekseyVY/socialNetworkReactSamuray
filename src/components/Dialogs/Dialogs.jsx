@@ -4,7 +4,7 @@ import Messages from "./Dialog/Messages/Messages";
 
 
 const Dialogs = ({ props, updateDialogText, addDialog }) => {
-
+    debugger
 
     return (
         <div className={styles.dialogs}>

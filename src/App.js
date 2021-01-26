@@ -10,6 +10,7 @@ import Settings from "./components/Settings/Settings";
 
 const App = ({ state, addPost, updatePostText, addDialog, updateDialogText }) => {
 
+
     return (
         <BrowserRouter>
             <div className={styles.app_wrapper}>
