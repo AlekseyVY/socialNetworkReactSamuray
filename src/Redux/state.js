@@ -63,6 +63,7 @@ export const addPost = () => {
 export const updatePostText = (data) => {
     state.profilePage.newPostText = data
     rerenderDOM()
+
 }
 
 export const subscribe = (observer) => {
