@@ -8,7 +8,7 @@ import News from "./components/News/News";
 import Music from "./components/Music/Music";
 import Settings from "./components/Settings/Settings";
 
-const App = ({ state, addPost, updatePostText, addDialog, updateDialogText }) => {
+const App = ({ state, dispatch }) => {
 
 
     return (
@@ -19,11 +19,11 @@ const App = ({ state, addPost, updatePostText, addDialog, updateDialogText }) =>
                 <div className={styles.container}>
                     <Route
                         path={'/dialogs'}
-                        render={() => <Dialogs props={state.messagesPage} addDialog={addDialog} updateDialogText={updateDialogText}/>}
+                        render={() => <Dialogs props={state.messagesPage} dispatch={dispatch} />}
                     />
                     <Route
                         path={'/profile'}
-                        render={() => <Profile props={state.profilePage} addPost={addPost} updatePostText={updatePostText}/>}
+                        render={() => <Profile props={state.profilePage} dispatch={dispatch} />}
                     />
                     <Route
                         path={'/news'}

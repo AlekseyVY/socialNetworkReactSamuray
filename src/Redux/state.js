@@ -32,37 +32,38 @@ let store = {
                 {name: 'Valera'}]
         }
     },
+    rerenderDOM() {},
+
     getState() {
         return this.state
     },
-    rerenderDOM() {},
-    addDialog() {
-        let newDialog = {
-            id: 6,
-            message: this.state.messagesPage.newMessage
-        }
-        this.state.messagesPage.messageData.push(newDialog)
-        this.rerenderDOM()
-    },
-    updateDialogText(data) {
-        this.state.messagesPage.newMessage = data;
-        this.rerenderDOM()
-    },
-    addPost() {
-        let newPost = {
-            id: 5,
-            message: this.state.profilePage.newPostText,
-            likesCount: 0
-        }
-        this.state.profilePage.posts.push(newPost)
-        this.rerenderDOM()
-    },
-    updatePostText(data) {
-        this.state.profilePage.newPostText = data
-        this.rerenderDOM()
-    },
     subscribe(observer) {
         this.rerenderDOM = observer
+    },
+
+    dispatch(action) {
+        if(action.type === 'ADD-POST'){
+            let newPost = {
+                id: 5,
+                message: this.state.profilePage.newPostText,
+                likesCount: 0
+            }
+            this.state.profilePage.posts.push(newPost)
+            this.rerenderDOM()
+        } else if(action.type === 'UPDATE-NEW-TEXT'){
+            this.state.profilePage.newPostText = action.data
+            this.rerenderDOM()
+        } else if(action.type === 'ADD-DIALOG'){
+            let newDialog = {
+                id: 6,
+                message: this.state.messagesPage.newMessage
+            }
+            this.state.messagesPage.messageData.push(newDialog)
+            this.rerenderDOM()
+        } else if(action.type === 'UPDATE-NEW-DIALOG'){
+            this.state.messagesPage.newMessage = action.data;
+            this.rerenderDOM()
+        }
     }
 }
 

@@ -1,15 +1,16 @@
 import React from 'react';
 import styles from './MyPosts.module.css'
 import Post from "./Post/Post";
-import Form from "./Form/Form";
+import Form from "../../Form/Form";
 
 
-const MyPosts = ({ posts, addPost, newPostText, updatePostText }) => {
+const MyPosts = ({ posts, newPostText, dispatch }) => {
+    debugger
     return (
         <>
             <div className={styles.create_post}>
                 <h3>My posts</h3>
-                <Form addPost={addPost} newPostText={newPostText} updatePostText={updatePostText}/>
+                <Form buttonAction={'ADD-POST'} newPostText={newPostText} dispatch={dispatch} textAction={'UPDATE-NEW-TEXT'}/>
             </div>
             <div className={styles.post_area}>
                 {

@@ -1,11 +1,11 @@
 import styles from './Messages.module.css'
 import Message from "./Message/Message";
-import Form from "../../../Profile/MyPosts/Form/Form";
+import Form from "../../../Form/Form";
 
 
 
 
-const Messages = ( { messageData, updateDialogText, addDialog, newMessage } ) => {
+const Messages = ( { messageData, newMessage, dispatch } ) => {
 
     return (
         <div className={styles.message_wrapper}>
@@ -16,7 +16,7 @@ const Messages = ( { messageData, updateDialogText, addDialog, newMessage } ) =>
                     )
                 })
             }
-            <Form updatePostText={updateDialogText} addPost={addDialog} newPostText={newMessage}/>
+            <Form textAction={'UPDATE-NEW-DIALOG'} buttonAction={'ADD-DIALOG'} newPostText={newMessage} dispatch={dispatch}/>
         </div>
     )
 }

@@ -3,7 +3,7 @@ import Dialog from "./Dialog/Dialog";
 import Messages from "./Dialog/Messages/Messages";
 
 
-const Dialogs = ({ props, updateDialogText, addDialog }) => {
+const Dialogs = ({ props, dispatch }) => {
     debugger
 
     return (
@@ -18,7 +18,7 @@ const Dialogs = ({ props, updateDialogText, addDialog }) => {
                 }
             </div>
             <div>
-                <Messages messageData={props.messageData} newMessage={props.newMessage} updateDialogText={updateDialogText} addDialog={addDialog}/>
+                <Messages messageData={props.messageData} newMessage={props.newMessage} dispatch={dispatch}/>
             </div>
         </div>
     )

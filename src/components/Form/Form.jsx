@@ -2,20 +2,29 @@ import styles from "./Form.module.css";
 import React from "react";
 
 
-const Form = ({ addPost, newPostText, updatePostText }) => {
+const Form = ({ newPostText, buttonAction, textAction, dispatch }) => {
 
     let newPostElement = React.createRef()
 
+
     const addPosts = (event) => {
         event.preventDefault()
-        addPost()
-        updatePostText('')
+        dispatch({
+            type: buttonAction,
+            data: newPostText
+        })
+        dispatch({
+            type: textAction,
+            data: ''
+        })
     }
 
     const onPostChange = () => {
         let text = newPostElement.current.value
-        updatePostText(text)
-        console.log(newPostText)
+        dispatch({
+            type: textAction,
+            data: text
+        })
     }
 
     return (
