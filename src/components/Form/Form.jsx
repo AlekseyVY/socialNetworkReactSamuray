@@ -9,7 +9,6 @@ const Form = ({ newPostText, buttonAction, textAction, dispatch }) => {
 
     let newPostElement = React.createRef()
 
-
     const addPosts = (event) => {
         event.preventDefault()
         dispatch(formAction(buttonAction, newPostText))
