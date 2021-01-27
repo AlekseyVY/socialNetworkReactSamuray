@@ -5,6 +5,7 @@ import Form from "../../Form/Form";
 
 
 const MyPosts = ({ posts, newPostText, onPostChange, addPosts }) => {
+
     return (
         <>
             <div className={styles.create_post}>

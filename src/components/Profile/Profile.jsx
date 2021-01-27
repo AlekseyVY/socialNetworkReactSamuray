@@ -5,14 +5,14 @@ import WallPaper from "./Wallpaper/WallPaper";
 import MyPostsContainer from "./MyPosts/MyPostsContainer";
 
 
-const Profile = ( {props, dispatch} ) => {
-    return (
-        <>
-            <WallPaper/>
-            <Character/>
-            <MyPostsContainer posts={props.posts} newPostText={props.newPostText} dispatch={dispatch} />
-        </>
-    )
+const Profile = () => {
+  return (
+    <>
+      <WallPaper/>
+      <Character/>
+      <MyPostsContainer />
+    </>
+  )
 }
 
 export default Profile
