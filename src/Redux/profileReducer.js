@@ -14,13 +14,15 @@ let initialState = {
 const profileReducer = (state = initialState, action) => {
     switch (action.type) {
         case ADD_POST:
+        {
             let newPost = {
                 id: 5,
                 message: state.profilePage.newPostText,
                 likesCount: 0
             }
-            state.profilePage.posts.push(newPost)
+            state.profilePage.posts.concat(newPost)
             break;
+        }
         case UPDATE_NEW_TEXT:
             state.profilePage.newPostText = action.data
             break;
@@ -29,5 +31,6 @@ const profileReducer = (state = initialState, action) => {
     }
     return state
 }
+
 
 export default profileReducer;
