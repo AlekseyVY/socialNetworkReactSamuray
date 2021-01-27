@@ -1,3 +1,7 @@
+import profileReducer from "./profileReducer";
+import messageReducer from "./messageReducer";
+import sideBarReducer from "./sideBarReducer";
+
 const ADD_POST = 'ADD-POST';
 const UPDATE_NEW_TEXT = 'UPDATE-NEW-TEXT';
 const ADD_DIALOG =  'ADD-DIALOG';
@@ -46,28 +50,10 @@ let store = {
     },
 
     dispatch(action) {
-        if(action.type === ADD_POST){
-            let newPost = {
-                id: 5,
-                message: this.state.profilePage.newPostText,
-                likesCount: 0
-            }
-            this.state.profilePage.posts.push(newPost)
-            this.rerenderDOM()
-        } else if(action.type === UPDATE_NEW_TEXT){
-            this.state.profilePage.newPostText = action.data
-            this.rerenderDOM()
-        } else if(action.type === ADD_DIALOG){
-            let newDialog = {
-                id: 6,
-                message: this.state.messagesPage.newMessage
-            }
-            this.state.messagesPage.messageData.push(newDialog)
-            this.rerenderDOM()
-        } else if(action.type === UPDATE_NEW_DIALOG){
-            this.state.messagesPage.newMessage = action.data;
-            this.rerenderDOM()
-        }
+        this.state.profilePage = profileReducer(this.state.profilePage, action)
+        this.state.messagesPage = messageReducer(this.state.messagesPage, action)
+        this.state.sideBar = sideBarReducer(this.state.sideBar, action)
+        this.rerenderDOM()
     }
 }
 
