@@ -1,32 +1,27 @@
 import Dialogs from "./Dialogs";
 import {formAction} from "../../Redux/actions";
-import StoreContext from "../../StoreContext";
+import {connect} from "react-redux";
 
 
-const DialogsContainer = () => {
-
-
-  return (
-    <StoreContext.Consumer>
-      {
-        (store) => {
-          const onPostChange = (textAction, text) => {
-            store.dispatch(formAction(textAction, text))
-          }
-
-          const addPosts = (buttonAction, textAction, newPostText) => {
-            store.dispatch(formAction(buttonAction, newPostText))
-            store.dispatch(formAction(textAction))
-          }
-          return (
-            <Dialogs onPostChange={onPostChange} addPosts={addPosts} props={store.getState().messageReducer.messagesPage}/>
-            )
-        }
-      }
-    </StoreContext.Consumer>
-
-  )
+let mapStateToProps = (state) => {
+  return {
+    props: state.messageReducer.messagesPage
+  }
 }
+
+let mapDispatchToProps = (dispatch) => {
+  return {
+    onPostChange: (textAction, text) => {
+      dispatch(formAction(textAction, text))
+    },
+    addPosts: (buttonAction, textAction, newPostText) => {
+      dispatch(formAction(buttonAction, newPostText))
+      dispatch(formAction(textAction))
+    }
+  }
+}
+
+const DialogsContainer = connect(mapStateToProps, mapDispatchToProps)(Dialogs)
 
 
 export default DialogsContainer;
