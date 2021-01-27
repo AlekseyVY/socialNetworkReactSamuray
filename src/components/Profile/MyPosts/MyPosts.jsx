@@ -5,7 +5,6 @@ import Form from "../../Form/Form";
 
 
 const MyPosts = ({ posts, newPostText, dispatch }) => {
-    debugger
     return (
         <>
             <div className={styles.create_post}>

@@ -13,7 +13,7 @@ const NavBar = ({ state }) => {
                 <NavButton text={'News'} src={'/news'}/>
                 <NavButton text={'Music'} src={'/music'}/>
                 <NavButton text={'Settings'} src={'/settings'}/>
-                <Friends state={state}/>
+                <Friends state={state} />
             </nav>
         </div>
     )

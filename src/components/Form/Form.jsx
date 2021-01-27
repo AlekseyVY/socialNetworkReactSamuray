@@ -1,6 +1,6 @@
 import styles from "./Form.module.css";
 import React from "react";
-import {formAction} from "../../Redux/state";
+import {formAction} from "../../Redux/store";
 
 
 

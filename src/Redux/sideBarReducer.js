@@ -1,11 +1,15 @@
-
-
-
-const sideBarReducer = (state, action) => {
-    switch (action.type){
-        default:
-            return state
+let initialState = {
+    sideBar: {
+        friends: [
+            {name: 'Aleksey'},
+            {name: 'Kirill'},
+            {name: 'Valera'}]
     }
+}
+
+
+const sideBarReducer = (state = initialState, action) => {
+    return state
 }
 
 

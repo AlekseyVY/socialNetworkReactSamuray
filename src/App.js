@@ -10,20 +10,19 @@ import Settings from "./components/Settings/Settings";
 
 const App = ({ state, dispatch }) => {
 
-
     return (
         <BrowserRouter>
             <div className={styles.app_wrapper}>
                 <Header/>
-                <NavBar state={state.sideBar}/>
+                <NavBar state={state.sideBarReducer.sideBar}/>
                 <div className={styles.container}>
                     <Route
                         path={'/dialogs'}
-                        render={() => <Dialogs props={state.messagesPage} dispatch={dispatch} />}
+                        render={() => <Dialogs props={state.messageReducer.messagesPage} dispatch={dispatch} />}
                     />
                     <Route
                         path={'/profile'}
-                        render={() => <Profile props={state.profilePage} dispatch={dispatch} />}
+                        render={() => <Profile props={state.profileReducer.profilePage} dispatch={dispatch} />}
                     />
                     <Route
                         path={'/news'}
