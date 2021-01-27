@@ -4,12 +4,12 @@ import Post from "./Post/Post";
 import Form from "../../Form/Form";
 
 
-const MyPosts = ({ posts, newPostText, dispatch }) => {
+const MyPosts = ({ posts, newPostText, onPostChange, addPosts }) => {
     return (
         <>
             <div className={styles.create_post}>
                 <h3>My posts</h3>
-                <Form buttonAction={'ADD-POST'} newPostText={newPostText} dispatch={dispatch} textAction={'UPDATE-NEW-TEXT'}/>
+                <Form buttonAction={'ADD-POST'} onPostChange={onPostChange} newPostText={newPostText} addPosts={addPosts} textAction={'UPDATE-NEW-TEXT'}/>
             </div>
             <div className={styles.post_area}>
                 {

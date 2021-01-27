@@ -3,7 +3,7 @@ import Dialog from "./Dialog/Dialog";
 import Messages from "./Dialog/Messages/Messages";
 
 
-const Dialogs = ({ props, dispatch }) => {
+const Dialogs = ({ props, onPostChange, addPosts }) => {
 
     console.log(props)
     return (
@@ -18,7 +18,7 @@ const Dialogs = ({ props, dispatch }) => {
                 }
             </div>
             <div>
-                <Messages messageData={props.messageData} newMessage={props.newMessage} dispatch={dispatch}/>
+                <Messages messageData={props.messageData} newMessage={props.newMessage} onPostChange={onPostChange} addPosts={addPosts}/>
             </div>
         </div>
     )

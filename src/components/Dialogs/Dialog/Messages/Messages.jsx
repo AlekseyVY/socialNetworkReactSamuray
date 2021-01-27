@@ -5,7 +5,7 @@ import Form from "../../../Form/Form";
 
 
 
-const Messages = ( { messageData, newMessage, dispatch } ) => {
+const Messages = ( { messageData, newMessage, onPostChange, addPosts } ) => {
 
     return (
         <div className={styles.message_wrapper}>
@@ -16,7 +16,7 @@ const Messages = ( { messageData, newMessage, dispatch } ) => {
                     )
                 })
             }
-            <Form textAction={'UPDATE-NEW-DIALOG'} buttonAction={'ADD-DIALOG'} newPostText={newMessage} dispatch={dispatch}/>
+            <Form textAction={'UPDATE-NEW-DIALOG'} buttonAction={'ADD-DIALOG'} newPostText={newMessage} onPostChange={onPostChange} addPosts={addPosts}/>
         </div>
     )
 }
