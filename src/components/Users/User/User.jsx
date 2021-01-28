@@ -2,7 +2,7 @@ import styles from './user.module.css'
 import avatar from './../../../resources/img/sec-prof.png'
 
 
-const User = ({ user, follow }) => {
+const User = ({user, follow}) => {
 
   return (
     <div className={styles.container}>
@@ -19,7 +19,7 @@ const User = ({ user, follow }) => {
             <strong>Status:</strong> {user.status}
           </div>
         </div>
-        <div  className={styles.lesser_container}>
+        <div className={styles.lesser_container}>
           <div>
             <strong>City:</strong>{user.location.city}
           </div>
@@ -31,7 +31,6 @@ const User = ({ user, follow }) => {
     </div>
   )
 }
-
 
 
 export default User;

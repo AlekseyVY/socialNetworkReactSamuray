@@ -9,7 +9,7 @@ const Users = (props) => {
         props.users.map((user) => {
           return (
             <User key={user.id} user={user} follow={props.follow}/>
-            )
+          )
         })
       }
     </div>

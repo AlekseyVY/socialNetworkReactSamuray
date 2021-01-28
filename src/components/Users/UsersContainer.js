@@ -3,8 +3,6 @@ import {connect} from "react-redux";
 import {follow, setUsers} from "../../Redux/userReducer";
 
 
-
-
 let mapStateToProps = (state) => {
   return {
     users: state.userReducer.usersPage.users
@@ -21,10 +19,6 @@ let mapDispatchToProps = (dispatch) => {
     }
   }
 }
-
-
-
-
 
 
 export default connect(mapStateToProps, mapDispatchToProps)(Users)
