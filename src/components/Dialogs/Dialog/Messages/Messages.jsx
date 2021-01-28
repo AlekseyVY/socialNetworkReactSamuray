@@ -12,7 +12,7 @@ const Messages = ( { messageData, newMessage, onPostChange, addPosts } ) => {
             {
                 messageData.map((ele) => {
                     return (
-                        <Message text={ele.message} id={ele.id}/>
+                        <Message key={ele.id} keyProp={ele.id} text={ele.message} id={ele.id}/>
                     )
                 })
             }

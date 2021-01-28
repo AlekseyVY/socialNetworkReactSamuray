@@ -16,7 +16,7 @@ const MyPosts = ({ posts, newPostText, onPostChange, addPosts }) => {
                 {
                     posts.map((ele) => {
                         return (
-                            <Post text={ele.message} id={ele.id} likes={ele.likesCount}/>
+                            <Post key={ele.id} text={ele.message} id={ele.id} likes={ele.likesCount}/>
                         )
                     })
                 }

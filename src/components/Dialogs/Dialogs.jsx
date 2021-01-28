@@ -10,7 +10,7 @@ const Dialogs = ({ props, onPostChange, addPosts }) => {
                 {
                     props.dialogs.map((element) => {
                         return (
-                            <Dialog text={element.name} src={element.id}/>
+                            <Dialog key={element.id} keyProp={element.id} text={element.name} src={element.id}/>
                         )
                     })
                 }

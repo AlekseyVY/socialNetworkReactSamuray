@@ -25,19 +25,32 @@ let initialState = {
 const messageReducer = (state = initialState, action) => {
     switch (action.type) {
         case ADD_DIALOG:
+        {
             let newDialog = {
                 id: 6,
                 message: state.messagesPage.newMessage
             }
-            state.messagesPage.messageData.push(newDialog)
-            break;
+            return {
+                ...state,
+                messagesPage: {
+                    ...state.messagesPage,
+                    messageData: [...state.messagesPage.messageData, newDialog],
+                }
+            }
+        }
         case UPDATE_NEW_DIALOG:
-            state.messagesPage.newMessage = action.data;
-            break;
+        {
+            return {
+                ...state,
+                messagesPage: {
+                    ...state.messagesPage,
+                    newMessage: action.data,
+                }
+            }
+        }
         default:
             return state;
     }
-    return state
 }
 
 

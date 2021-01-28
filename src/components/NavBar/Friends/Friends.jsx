@@ -12,9 +12,7 @@ const Friends = ({state}) => {
       <div className={styles.friendsContainer}>
         {
           state.friends.map((ele) => {
-            return (
-              <Friend state={ele}/>
-            )
+                <Friend state={ele}/>
           })
         }
       </div>

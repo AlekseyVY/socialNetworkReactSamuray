@@ -20,16 +20,27 @@ const profileReducer = (state = initialState, action) => {
                 message: state.profilePage.newPostText,
                 likesCount: 0
             }
-            state.profilePage.posts.concat(newPost)
-            break;
+            return {
+                ...state,
+                profilePage: {
+                    ...state.profilePage,
+                    posts: [...state.profilePage.posts, newPost],
+                }
+            }
         }
         case UPDATE_NEW_TEXT:
-            state.profilePage.newPostText = action.data
-            break;
+        {
+            return {
+                ...state,
+                profilePage: {
+                    ...state.profilePage,
+                    newPostText: action.data
+                }
+            }
+        }
         default:
             return state;
     }
-    return state
 }
 
 

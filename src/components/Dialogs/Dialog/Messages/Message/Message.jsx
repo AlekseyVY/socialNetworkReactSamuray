@@ -2,10 +2,10 @@ import styles from './Message.module.css'
 
 
 
-const Message = ({ text, id }) => {
+const Message = ({ text, id, keyProp }) => {
 
     return (
-        <div className={styles.item}>
+        <div key={keyProp} className={styles.item}>
             {id}: {text}
         </div>
     )
