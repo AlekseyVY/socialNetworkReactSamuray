@@ -1,7 +1,14 @@
 import User from "./User/User";
+import axios from "axios";
 
 
 const Users = (props) => {
+
+  if(props.users.length === 0){
+    axios.get('https://social-network.samuraijs.com/api/1.0/users').then((resp) => {
+      props.setUsers(resp.data.items)
+    })
+  }
 
   return (
     <div>
