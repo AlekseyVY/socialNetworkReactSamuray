@@ -2,6 +2,7 @@ import {combineReducers, createStore} from "redux";
 import sideBarReducer from "./sideBarReducer";
 import profileReducer from "./profileReducer";
 import messageReducer from "./messageReducer";
+import userReducer from "./userReducer";
 
 
 
@@ -9,7 +10,8 @@ import messageReducer from "./messageReducer";
 let reducers = combineReducers({
     profileReducer: profileReducer,
     messageReducer: messageReducer,
-    sideBarReducer: sideBarReducer
+    sideBarReducer: sideBarReducer,
+    userReducer: userReducer
 })
 
 

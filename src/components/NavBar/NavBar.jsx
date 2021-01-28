@@ -4,6 +4,7 @@ import NavButton from "./NavButton/NavButton";
 import Friends from "./Friends/Friends";
 
 const NavBar = ({state}) => {
+
   return (
     <div>
       <nav className={styles.nav}>
@@ -11,6 +12,7 @@ const NavBar = ({state}) => {
         <NavButton text={'Messages'} src={'/dialogs'}/>
         <NavButton text={'News'} src={'/news'}/>
         <NavButton text={'Music'} src={'/music'}/>
+        <NavButton text={'Users'} src={'/users'}/>
         <NavButton text={'Settings'} src={'/settings'}/>
         <Friends state={state}/>
       </nav>

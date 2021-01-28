@@ -1,0 +1,38 @@
+.container {
+    display: flex;
+    justify-content: flex-start;
+    margin: 10px 30px;
+}
+
+.avatar_container {
+    display: flex;
+    width: 100px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.avatar {
+    width: 50px;
+    height: auto;
+}
+
+.user_info_container_left {
+    border: 1px solid black;
+    margin: 10px;
+    width: 500px;
+}
+
+.user_info_container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid black;
+    border-radius: 10px;
+    margin: 10px;
+    width: 500px;
+}
+
+.lesser_container {
+    margin: 0 10px;
+}
