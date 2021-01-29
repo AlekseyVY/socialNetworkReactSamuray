@@ -8,11 +8,15 @@ import * as React from "react";
 class Users extends React.Component {
   constructor(props) {
     super(props);
-    axios.get('https://social-network.samuraijs.com/api/1.0/users').then((resp) => {
-      this.props.setUsers(resp.data.items)
-    })
   }
 
+  componentDidMount() {
+    if(this.props.users.length === 0){
+      axios.get('https://social-network.samuraijs.com/api/1.0/users').then((resp) => {
+        this.props.setUsers(resp.data.items)
+      })
+    }
+  }
 
 
   render() {
