@@ -1,0 +1,8 @@
+.activePage {
+    font-weight: bolder;
+    color: orangered;
+}
+
+.page {
+    margin: 10px;
+}
