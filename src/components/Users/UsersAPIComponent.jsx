@@ -3,11 +3,10 @@ import axios from "axios";
 import * as React from "react";
 import styles from './usersAPIContainer.module.css'
 import PageNumber from "./PageNumber/PageNumber";
-import Preloader from "../Preloader/Preloader";
+import Preloader from "../common/Preloader/Preloader";
 
 
 class UsersAPIComponent extends React.Component {
-
   componentDidMount() {
     this.props.setIsFetching()
     axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pageSize}`).then((resp) => {
@@ -27,7 +26,6 @@ class UsersAPIComponent extends React.Component {
       this.props.setIsFetching()
       this.props.setUsers(resp.data.items)
     })
-    console.log(this.pageCount)
     if (pageNumber >= this.pages[this.pages.length - 1]) {
       this.pages.push(pageNumber + 1)
       this.pages.shift()

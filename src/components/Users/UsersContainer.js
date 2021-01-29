@@ -13,25 +13,12 @@ let mapStateToProps = (state) => {
   }
 }
 
-let mapDispatchToProps = (dispatch) => {
-  return {
-    follow: (userId) => {
-      dispatch(follow(userId))
-    },
-    setUsers: (users) => {
-      dispatch(setUsers(users))
-    },
-    setPage: (pageNumber) => {
-      dispatch(setPage(pageNumber))
-    },
-    setUsersCount: (totalCount) => {
-      dispatch(setUsersCount(totalCount))
-    },
-    setIsFetching: () => {
-      dispatch(setIsFetching())
-    }
-  }
-}
 
-
-export default connect(mapStateToProps, mapDispatchToProps)(UsersAPIComponent)
+export default connect(mapStateToProps, {
+  follow,
+  setUsers,
+  setPage,
+  setUsersCount,
+  setIsFetching
+})
+(UsersAPIComponent)

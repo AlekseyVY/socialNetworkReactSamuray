@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './MyPosts.module.css'
 import Post from "./Post/Post";
-import Form from "../../Form/Form";
+import Form from "../../common/Form/Form";
 
 
 const MyPosts = ({posts, newPostText, onPostChange, addPosts}) => {

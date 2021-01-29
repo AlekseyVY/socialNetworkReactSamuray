@@ -1,5 +1,5 @@
 import styles from "./preloader.module.css";
-import userLoader from "../../resources/loaders/Bean Eater.gif";
+import userLoader from "../../../resources/loaders/Bean Eater.gif";
 
 
 const Preloader = () => {

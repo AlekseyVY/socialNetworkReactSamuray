@@ -1,6 +1,6 @@
 import styles from './Messages.module.css'
 import Message from "./Message/Message";
-import Form from "../../../Form/Form";
+import Form from "../../../common/Form/Form";
 
 
 const Messages = ({messageData, newMessage, onPostChange, addPosts}) => {
