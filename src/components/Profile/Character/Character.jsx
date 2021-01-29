@@ -3,12 +3,11 @@ import Avatar from "./Avatar/Avatar";
 import Description from "./Description/Description";
 
 
-const Character = () => {
-
+const Character = ({profile}) => {
   return (
     <div className={styles.char_info}>
-      <Avatar/>
-      <Description/>
+      <Avatar photo={profile.photos.large}/>
+      <Description profile={profile}/>
     </div>
   )
 }

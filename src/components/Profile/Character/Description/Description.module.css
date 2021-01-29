@@ -13,3 +13,13 @@
     flex-direction: column;
     justify-content: center;
 }
+
+.contact {
+    margin: 5px;
+}
+
+.contacts_container {
+    width: 500px;
+    display: flex;
+    flex-wrap: wrap;
+}

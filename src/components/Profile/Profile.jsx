@@ -5,11 +5,11 @@ import WallPaper from "./Wallpaper/WallPaper";
 import MyPostsContainer from "./MyPosts/MyPostsContainer";
 
 
-const Profile = () => {
+const Profile = ({profile}) => {
   return (
     <>
       <WallPaper/>
-      <Character/>
+      <Character profile={profile}/>
       <MyPostsContainer/>
     </>
   )

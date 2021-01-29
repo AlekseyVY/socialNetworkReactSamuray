@@ -1,5 +1,6 @@
 import styles from './user.module.css'
 import avatar from './../../../resources/img/sec-prof.png'
+import {NavLink} from "react-router-dom";
 
 
 const User = ({user, follow}) => {
@@ -9,16 +10,16 @@ const User = ({user, follow}) => {
         <img className={styles.avatar} src={user.photos.small || avatar} alt={'Avatar'}/>
         <button onClick={() => follow(user.id)}>{user.followed === true ? 'unfollow' : 'follow'}</button>
       </div>
-      <div className={styles.user_info_container}>
-        <div className={styles.lesser_container}>
-          <div>
-            <strong>Full Name:</strong> {user.name}
+      <NavLink className={styles.user_info_container} to={`/profile/${user.id}`}>
+          <div className={styles.lesser_container}>
+            <div>
+              <strong>Full Name:</strong> {user.name}
+            </div>
+            <div>
+              <strong>Status:</strong> {user.status || "No status"}
+            </div>
           </div>
-          <div>
-            <strong>Status:</strong> {user.status || "No status"}
-          </div>
-        </div>
-      </div>
+      </NavLink>
     </div>
   )
 }
