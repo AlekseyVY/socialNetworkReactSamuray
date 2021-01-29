@@ -1,14 +1,13 @@
-
 import styles from './Settings.module.css'
 
 
 const Settings = (props) => {
 
-    return (
-        <>
-            Settings
-        </>
-    )
+  return (
+    <>
+      Settings
+    </>
+  )
 }
 
 

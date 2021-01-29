@@ -4,31 +4,31 @@ const SET_CURRENT_PAGE = 'SET_CURRENT_PAGE';
 const SET_TOTAL_COUNT = 'SET_TOTAL_COUNT';
 
 let initialState = {
-    users: [],
-    pageSize: 5,
-    totalUserCount: 23,
-    currentPage: 1
+  users: [],
+  pageSize: 5,
+  totalUserCount: 23,
+  currentPage: 1
 }
 
 
-const userReducer = (state= initialState , action) => {
+const userReducer = (state = initialState, action) => {
   switch (action.type) {
     case FOLLOW: {
       return {
         ...state,
-          users: state.users.map((user) => {
-            if(user.id === action.data){
-              return {...user, followed: !user.followed}
-            } else {
-              return user
-            }
-          })
+        users: state.users.map((user) => {
+          if (user.id === action.data) {
+            return {...user, followed: !user.followed}
+          } else {
+            return user
+          }
+        })
       }
     }
     case SET_USERS: {
       return {
         ...state,
-          users: [...action.data]
+        users: [...action.data]
       }
     }
     case SET_CURRENT_PAGE: {

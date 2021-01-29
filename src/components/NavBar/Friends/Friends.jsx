@@ -11,10 +11,10 @@ const Friends = ({state}) => {
       </div>
       <div className={styles.friendsContainer}>
         {
-          state.friends.map((ele,id) => {
+          state.friends.map((ele, id) => {
             return (
               <Friend key={id} state={ele} keyProp={id}/>
-              )
+            )
           })
         }
       </div>

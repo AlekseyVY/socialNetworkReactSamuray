@@ -10,7 +10,7 @@ const Profile = () => {
     <>
       <WallPaper/>
       <Character/>
-      <MyPostsContainer />
+      <MyPostsContainer/>
     </>
   )
 }

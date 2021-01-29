@@ -1,15 +1,15 @@
 let initialState = {
-    sideBar: {
-        friends: [
-            {name: 'Aleksey'},
-            {name: 'Kirill'},
-            {name: 'Valera'}]
-    }
+  sideBar: {
+    friends: [
+      {name: 'Aleksey'},
+      {name: 'Kirill'},
+      {name: 'Valera'}]
+  }
 }
 
 
 const sideBarReducer = (state = initialState, action) => {
-    return state
+  return state
 }
 
 

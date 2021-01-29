@@ -25,7 +25,7 @@ const App = () => {
         />
         <Route
           path={'/users'}
-          render={() => <UsersContainer />}
+          render={() => <UsersContainer/>}
         />
         <Route
           path={'/news'}

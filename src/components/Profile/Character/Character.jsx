@@ -5,12 +5,12 @@ import Description from "./Description/Description";
 
 const Character = () => {
 
-    return (
-        <div className={styles.char_info}>
-            <Avatar />
-            <Description />
-        </div>
-    )
+  return (
+    <div className={styles.char_info}>
+      <Avatar/>
+      <Description/>
+    </div>
+  )
 }
 
 export default Character;

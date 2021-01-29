@@ -4,11 +4,11 @@ import mainProfImg from "../../../../resources/img/main-prof.jpg";
 
 const Avatar = () => {
 
-    return (
-        <div>
-            <img className={styles.main_prof_img} src={mainProfImg} alt="Main profile"/>
-        </div>
-    )
+  return (
+    <div>
+      <img className={styles.main_prof_img} src={mainProfImg} alt="Main profile"/>
+    </div>
+  )
 }
 
 
