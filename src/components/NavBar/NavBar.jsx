@@ -10,9 +10,9 @@ const NavBar = ({state}) => {
       <nav className={styles.nav}>
         <NavButton text={'Profile'} src={'/profile'}/>
         <NavButton text={'Messages'} src={'/dialogs'}/>
+        <NavButton text={'Users'} src={'/users'}/>
         <NavButton text={'News'} src={'/news'}/>
         <NavButton text={'Music'} src={'/music'}/>
-        <NavButton text={'Users'} src={'/users'}/>
         <NavButton text={'Settings'} src={'/settings'}/>
         <Friends state={state}/>
       </nav>

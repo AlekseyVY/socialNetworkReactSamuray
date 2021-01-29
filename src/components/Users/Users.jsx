@@ -1,29 +1,35 @@
 import User from "./User/User";
 import axios from "axios";
+import * as React from "react";
 
 
-const Users = (props) => {
 
-  const getUsers = () => {
+
+class Users extends React.Component {
+  constructor(props) {
+    super(props);
     axios.get('https://social-network.samuraijs.com/api/1.0/users').then((resp) => {
-      props.setUsers(resp.data.items)
+      this.props.setUsers(resp.data.items)
     })
   }
 
 
-  return (
-    <div>
-      {
-        props.users.length === 0
-          ? <button onClick={getUsers}>Get Users</button>
-          : props.users.map((user) => {
-          return (
-            <User key={user.id} user={user} follow={props.follow}/>
-          )
-        })
-      }
-    </div>
-  )
+
+  render() {
+    return (
+      <div>
+        {
+          this.props.users.length === 0
+            ? "No users"
+            : this.props.users.map((user) => {
+              return (
+                <User key={user.id} user={user} follow={this.props.follow}/>
+              )
+            })
+        }
+      </div>
+    )
+  }
 }
 
 
