@@ -6,7 +6,6 @@ import Preloader from "../common/Preloader/Preloader";
 import {followAPI, usersAPI} from "../../api/api";
 
 
-
 class UsersAPIComponent extends React.Component {
   componentDidMount() {
     this.props.setIsFetching()
@@ -40,7 +39,7 @@ class UsersAPIComponent extends React.Component {
     this.props.followingInProgress(true, id)
     followAPI.followUser(id)
     .then((data) => {
-      if(data.resultCode === 0) {
+      if (data.resultCode === 0) {
         this.props.followingInProgress(false, id)
         this.props.follow(id)
       }
@@ -51,7 +50,7 @@ class UsersAPIComponent extends React.Component {
     this.props.followingInProgress(true, id)
     followAPI.unFollowUser(id)
     .then((data) => {
-      if(data.resultCode === 0) {
+      if (data.resultCode === 0) {
         this.props.followingInProgress(false, id)
         this.props.follow(id)
       }

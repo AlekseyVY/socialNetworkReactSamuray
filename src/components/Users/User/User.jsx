@@ -10,12 +10,14 @@ const User = ({user, followU, unFollowU, followingProcess}) => {
         <img className={styles.avatar} src={user.photos.small || avatar} alt={'Avatar'}/>
         {
           user.followed
-            ? <button disabled={followingProcess.some((id) => id === user.id)} className={styles.activePage} onClick={() => unFollowU(user.id)
-            }>
+            ? <button disabled={followingProcess.some((id) => id === user.id)} className={styles.activePage}
+                      onClick={() => unFollowU(user.id)
+                      }>
               {'unfollow'}
             </button>
-            : <button disabled={followingProcess.some((id) => id === user.id)} className={styles.notActivePage} onClick={() => followU(user.id)
-            }>
+            : <button disabled={followingProcess.some((id) => id === user.id)} className={styles.notActivePage}
+                      onClick={() => followU(user.id)
+                      }>
               {'follow'}
             </button>
         }
