@@ -43,3 +43,43 @@
 .lesser_container {
     margin: 0 10px;
 }
+
+
+
+.notActivePage {
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 10px 25px;
+
+
+    color: black;
+    text-decoration: none;
+    outline: none;
+    margin: 10px;
+}
+
+.activePage {
+    border-radius: 10px;
+    padding: 10px 25px;
+    border: 1px solid white;
+
+    text-decoration: none;
+    margin: 10px;
+    background-color: black;
+    color: aliceblue;
+    outline: none;
+}
+
+
+.notActivePage:hover {
+    border-radius: 10px;
+    padding: 10px 25px;
+    border: 1px solid white;
+
+
+    text-decoration: none;
+    margin: 10px;
+    background-color: black;
+    color: aliceblue;
+    outline: none;
+}

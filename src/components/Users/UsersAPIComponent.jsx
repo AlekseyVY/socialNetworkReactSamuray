@@ -1,18 +1,19 @@
 import User from "./User/User";
-import axios from "axios";
 import * as React from "react";
 import styles from './usersAPIContainer.module.css'
 import PageNumber from "./PageNumber/PageNumber";
 import Preloader from "../common/Preloader/Preloader";
+import {followAPI, usersAPI} from "../../api/api";
+
 
 
 class UsersAPIComponent extends React.Component {
   componentDidMount() {
     this.props.setIsFetching()
-    axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pageSize}`, {withCredentials: true}).then((resp) => {
+    usersAPI.getUsers(this.props.currentPage, this.props.pageSize).then((data) => {
       this.props.setIsFetching()
-      this.props.setUsers(resp.data.items);
-      this.props.setUsersCount(resp.data.totalCount)
+      this.props.setUsers(data.items);
+      this.props.setUsersCount(data.totalCount)
     })
   }
 
@@ -22,10 +23,9 @@ class UsersAPIComponent extends React.Component {
   onPageChanged = (pageNumber) => {
     this.props.setIsFetching()
     this.props.setPage(pageNumber)
-    axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${pageNumber}&count=${this.props.pageSize}`,
-      {withCredentials: true}).then((resp) => {
+    usersAPI.getUsers(this.props.currentPage, this.props.pageSize).then((data) => {
       this.props.setIsFetching()
-      this.props.setUsers(resp.data.items)
+      this.props.setUsers(data.items)
     })
     if (pageNumber >= this.pages[this.pages.length - 1]) {
       this.pages.push(pageNumber + 1)
@@ -35,6 +35,25 @@ class UsersAPIComponent extends React.Component {
       this.pages.pop()
     }
   }
+
+  followU = (id) => {
+    followAPI.followUser(id)
+    .then((resp) => {
+      if(resp.data.resultCode === 0) {
+        this.props.follow(id)
+      }
+    })
+  }
+
+  unFollowU = (id) => {
+    followAPI.unFollowUser(id)
+    .then((resp) => {
+      if(resp.data.resultCode === 0) {
+        this.props.follow(id)
+      }
+    })
+  }
+
 
   render() {
     let pages = this.pages
@@ -62,9 +81,11 @@ class UsersAPIComponent extends React.Component {
                 this.props.users.map((user) => {
                   return (
                     <User
+                      followU={this.followU}
+                      unFollowU={this.unFollowU}
                       key={user.id}
                       user={user}
-                      follow={this.props.follow}/>
+                    />
                   )
                 })
               }

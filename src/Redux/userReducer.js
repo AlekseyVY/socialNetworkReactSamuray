@@ -58,35 +58,35 @@ const userReducer = (state = initialState, action) => {
 
 export const follow = (userId) => {
   return {
-    type: FOLLOW,
+    type: 'FOLLOW',
     data: userId
   }
 }
 
 export const setUsers = (users) => {
   return {
-    type: SET_USERS,
+    type: "SET_USERS",
     data: users
   }
 }
 
 export const setPage = (pageNumber) => {
   return {
-    type: SET_CURRENT_PAGE,
+    type: "SET_CURRENT_PAGE",
     data: pageNumber
   }
 }
 
 export const setUsersCount = (totalCount) => {
   return {
-    type: SET_TOTAL_COUNT,
+    type: "SET_TOTAL_COUNT",
     data: totalCount
   }
 }
 
 export const setIsFetching = () => {
   return {
-    type: SET_ISFETCHING
+    type: "SET_ISFETCHING"
   }
 }
 
