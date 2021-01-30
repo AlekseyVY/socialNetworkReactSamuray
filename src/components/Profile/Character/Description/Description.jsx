@@ -2,11 +2,10 @@ import styles from "./Description.module.css";
 
 
 const Description = ({profile}) => {
-  console.log(profile.contacts)
   return (
     <div className={styles.description}>
-      <h3 className={styles.h3}>{profile.fullName}</h3>
-      <p className={styles.p}>About me: {profile.aboutMe}</p>
+      <h3 className={styles.h3}>{profile.fullName || "No data"}</h3>
+      <p className={styles.p}>About me: {profile.aboutMe || "No data"}</p>
       {
         profile.lookingForAJob
           ? <p className={styles.p}>Job status: {profile.lookingForAJobDescription}</p>

@@ -2,6 +2,7 @@ const ADD_POST = 'ADD-POST';
 const UPDATE_NEW_TEXT = 'UPDATE-NEW-TEXT';
 const SET_USER_PROFILE = 'SET_USER_PROFILE';
 const SET_ISFETCHING = 'SET_ISFETCHING';
+const SET_USER_ID = 'SET_USER_ID';
 
 let initialState = {
   posts: [
@@ -10,7 +11,8 @@ let initialState = {
   ],
   newPostText: '',
   profile: null,
-  isFetching: false
+  isFetching: false,
+  userId: 2
 }
 
 const profileReducer = (state = initialState, action) => {
@@ -44,6 +46,12 @@ const profileReducer = (state = initialState, action) => {
         isFetching: !state.isFetching
       }
     }
+    case SET_USER_ID: {
+      return {
+        ...state,
+        userId: action.data
+      }
+    }
     default:
       return state;
   }
@@ -60,6 +68,13 @@ export const setProfile = (profile) => {
 export const setIsFetching = () => {
   return {
     type: SET_ISFETCHING
+  }
+}
+
+export const setUserId = (userId) => {
+  return {
+    type: SET_USER_ID,
+    data: userId
   }
 }
 
