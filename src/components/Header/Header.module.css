@@ -9,9 +9,9 @@
     border-radius: 10px;
     margin-bottom: 10px;
 
-    -webkit-box-shadow: 10px 10px 23px 0px rgba(0, 0, 0, 0.45);
-    -moz-box-shadow: 10px 10px 23px 0px rgba(0, 0, 0, 0.45);
-    box-shadow: 10px 10px 23px 0px rgba(0, 0, 0, 0.45);
+    -webkit-box-shadow: 10px 10px 23px 0 rgba(0, 0, 0, 0.45);
+    -moz-box-shadow: 10px 10px 23px 0 rgba(0, 0, 0, 0.45);
+    box-shadow: 10px 10px 23px 0 rgba(0, 0, 0, 0.45);
 }
 
 .img {
@@ -28,9 +28,9 @@
     border-radius: 10px;
     padding: 10px 25px;
 
-    -webkit-box-shadow: 10px 10px 23px 0px rgba(0, 0, 0, 0.45);
-    -moz-box-shadow: 10px 10px 23px 0px rgba(0, 0, 0, 0.45);
-    box-shadow: 10px 10px 23px 0px rgba(0, 0, 0, 0.45);
+    -webkit-box-shadow: 10px 10px 23px 0 rgba(0, 0, 0, 0.45);
+    -moz-box-shadow: 10px 10px 23px 0 rgba(0, 0, 0, 0.45);
+    box-shadow: 10px 10px 23px 0 rgba(0, 0, 0, 0.45);
 
     color: black;
     text-decoration: none;
@@ -47,4 +47,26 @@
     background-color: black;
     border: none;
     color: aliceblue;
+}
+
+.logout {
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 10px 25px;
+    background-color: white;
+
+    -webkit-box-shadow: 10px 10px 23px 0 rgba(0, 0, 0, 0.45);
+    -moz-box-shadow: 10px 10px 23px 0 rgba(0, 0, 0, 0.45);
+    box-shadow: 10px 10px 23px 0 rgba(0, 0, 0, 0.45);
+
+    color: black;
+    text-decoration: none;
+    outline: none;
+}
+
+.logout:hover {
+    background-color: black;
+    border: none;
+    color: aliceblue;
+    cursor: pointer;
 }

@@ -1,4 +1,3 @@
-import React from 'react';
 import {formAction} from "../../../Redux/actions";
 import MyPosts from "./MyPosts";
 import {connect} from "react-redux";

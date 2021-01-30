@@ -2,7 +2,7 @@ import Header from "./Header";
 import * as React from "react";
 import axios from "axios";
 import {connect} from "react-redux";
-import {fetching, setUserData} from "../../Redux/auth_reducer";
+import {fetching, setUserData, logout} from "../../Redux/auth_reducer";
 
 
 class HeaderContainer extends React.Component {
@@ -22,7 +22,7 @@ class HeaderContainer extends React.Component {
 
   render(){
     return (
-      <Header />
+      <Header  isAuth={this.props.isAuth} login={this.props.login} logout={this.props.logout}/>
     )
   }
 }
@@ -33,7 +33,8 @@ let mapStateToProps = (state) => {
     isFetching: state.authReducer.isFetching,
     userId: state.authReducer.userId,
     login: state.authReducer.login,
-    email: state.authReducer.email
+    email: state.authReducer.email,
+    isAuth: state.authReducer.isAuth
   }
 }
 
@@ -41,5 +42,6 @@ let mapStateToProps = (state) => {
 
 export default connect(mapStateToProps, {
   fetching,
-  setUserData
+  setUserData,
+  logout
 })(HeaderContainer);

@@ -4,13 +4,18 @@ import styles from './Header.module.css'
 import {NavLink} from "react-router-dom";
 
 
-const Header = () => {
+const Header = ({isAuth, login, logout}) => {
 
   return (
     <header className={styles.header}>
       <img className={styles.img} src={logo} alt="logo"/>
       <div className={styles.loginBlock}>
-        <NavLink activeClassName={styles.active} className={styles.item} to={'/login'}>Login</NavLink>
+        {
+          isAuth
+            ? <button onClick={() => logout()} className={styles.logout}>{login}: logout</button>
+            : <NavLink activeClassName={styles.active} className={styles.item} to={'/login'}>Login</NavLink>
+        }
+
       </div>
     </header>
   )
