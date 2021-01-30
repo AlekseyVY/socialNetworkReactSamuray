@@ -1,4 +1,3 @@
-import Header from './components/Header/Header';
 import styles from './App.module.css';
 import {Route} from 'react-router-dom'
 import News from "./components/News/News";
@@ -8,11 +7,12 @@ import DialogsContainer from "./components/Dialogs/DialogsContainer";
 import NavBarContainer from "./components/NavBar/NavBarContainer";
 import UsersContainer from "./components/Users/UsersContainer";
 import ProfileContainer from "./components/Profile/ProfileContainer";
+import HeaderContainer from "./components/Header/HeaderContainer";
 
 const App = () => {
   return (
     <div className={styles.app_wrapper}>
-      <Header/>
+      <HeaderContainer/>
       <NavBarContainer/>
       <div className={styles.container}>
         <Route

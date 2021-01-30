@@ -3,13 +3,15 @@ import sideBarReducer from "./sideBarReducer";
 import profileReducer from "./profileReducer";
 import messageReducer from "./messageReducer";
 import userReducer from "./userReducer";
+import authReducer from "./auth_reducer";
 
 
 let reducers = combineReducers({
   profileReducer: profileReducer,
   messageReducer: messageReducer,
   sideBarReducer: sideBarReducer,
-  userReducer: userReducer
+  userReducer: userReducer,
+  authReducer: authReducer
 })
 
 

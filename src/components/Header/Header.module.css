@@ -1,7 +1,7 @@
 .header {
     display: flex;
     align-items: center;
-    justify-content: flex-start;
+    justify-content: space-between;
     grid-area: h;
     background: rgba(255, 255, 255, 0.25);
     backdrop-filter: blur(4px);
@@ -18,4 +18,33 @@
     margin-left: 10px;
     width: 50px;
     border-radius: 50%;
+}
+.loginBlock {
+    margin-right: 30px;
+}
+
+.item {
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 10px 25px;
+
+    -webkit-box-shadow: 10px 10px 23px 0px rgba(0, 0, 0, 0.45);
+    -moz-box-shadow: 10px 10px 23px 0px rgba(0, 0, 0, 0.45);
+    box-shadow: 10px 10px 23px 0px rgba(0, 0, 0, 0.45);
+
+    color: black;
+    text-decoration: none;
+}
+
+.item:hover {
+    background-color: black;
+    border: none;
+    color: aliceblue;
+    cursor: pointer;
+}
+
+.active {
+    background-color: black;
+    border: none;
+    color: aliceblue;
 }
