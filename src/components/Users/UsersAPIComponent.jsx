@@ -37,18 +37,22 @@ class UsersAPIComponent extends React.Component {
   }
 
   followU = (id) => {
+    this.props.followingInProgress(true, id)
     followAPI.followUser(id)
-    .then((resp) => {
-      if(resp.data.resultCode === 0) {
+    .then((data) => {
+      if(data.resultCode === 0) {
+        this.props.followingInProgress(false, id)
         this.props.follow(id)
       }
     })
   }
 
   unFollowU = (id) => {
+    this.props.followingInProgress(true, id)
     followAPI.unFollowUser(id)
-    .then((resp) => {
-      if(resp.data.resultCode === 0) {
+    .then((data) => {
+      if(data.resultCode === 0) {
+        this.props.followingInProgress(false, id)
         this.props.follow(id)
       }
     })
@@ -81,6 +85,7 @@ class UsersAPIComponent extends React.Component {
                 this.props.users.map((user) => {
                   return (
                     <User
+                      followingProcess={this.props.followingProcess}
                       followU={this.followU}
                       unFollowU={this.unFollowU}
                       key={user.id}
