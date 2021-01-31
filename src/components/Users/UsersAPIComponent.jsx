@@ -3,17 +3,13 @@ import * as React from "react";
 import styles from './usersAPIContainer.module.css'
 import PageNumber from "./PageNumber/PageNumber";
 import Preloader from "../common/Preloader/Preloader";
-import {followAPI, usersAPI} from "../../api/api";
+import {usersAPI} from "../../api/api";
 
 
 class UsersAPIComponent extends React.Component {
+
   componentDidMount() {
-    this.props.setIsFetching()
-    usersAPI.getUsers(this.props.currentPage, this.props.pageSize).then((data) => {
-      this.props.setIsFetching()
-      this.props.setUsers(data.items);
-      this.props.setUsersCount(data.totalCount)
-    })
+    this.props.getUsersThunkCreator(this.props.currentPage, this.props.pageSize);
   }
 
   //pageCount = Math.ceil(this.props.totalUserCount / this.props.pageSize)
@@ -35,27 +31,6 @@ class UsersAPIComponent extends React.Component {
     }
   }
 
-  followU = (id) => {
-    this.props.followingInProgress(true, id)
-    followAPI.followUser(id)
-    .then((data) => {
-      if (data.resultCode === 0) {
-        this.props.followingInProgress(false, id)
-        this.props.follow(id)
-      }
-    })
-  }
-
-  unFollowU = (id) => {
-    this.props.followingInProgress(true, id)
-    followAPI.unFollowUser(id)
-    .then((data) => {
-      if (data.resultCode === 0) {
-        this.props.followingInProgress(false, id)
-        this.props.follow(id)
-      }
-    })
-  }
 
 
   render() {
@@ -85,8 +60,7 @@ class UsersAPIComponent extends React.Component {
                   return (
                     <User
                       followingProcess={this.props.followingProcess}
-                      followU={this.followU}
-                      unFollowU={this.unFollowU}
+                      followU={this.props.getFollow}
                       key={user.id}
                       user={user}
                     />

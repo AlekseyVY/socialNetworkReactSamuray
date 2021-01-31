@@ -3,20 +3,20 @@ import avatar from './../../../resources/img/main-prof.jpg'
 import {NavLink} from "react-router-dom";
 
 
-const User = ({user, followU, unFollowU, followingProcess}) => {
+const User = ({user, followU, followingProcess}) => {
   return (
     <div className={styles.container}>
       <div className={styles.avatar_container}>
         <img className={styles.avatar} src={user.photos.small || avatar} alt={'Avatar'}/>
         {
           user.followed
-            ? <button disabled={followingProcess.some((id) => id === user.id)} className={styles.activePage}
-                      onClick={() => unFollowU(user.id)
+            ? <button className={styles.activePage}
+                      onClick={() => followU(false, user.id)
                       }>
               {'unfollow'}
             </button>
             : <button disabled={followingProcess.some((id) => id === user.id)} className={styles.notActivePage}
-                      onClick={() => followU(user.id)
+                      onClick={() => followU(true, user.id)
                       }>
               {'follow'}
             </button>

@@ -1,3 +1,5 @@
+import {usersAPI} from "../api/api";
+
 const FOLLOW = 'FOLLOW';
 const SET_USERS = 'SET_USERS';
 const SET_CURRENT_PAGE = 'SET_CURRENT_PAGE';
@@ -106,5 +108,40 @@ export const followingInProgress = (status, id) => {
     data: {status, id}
   }
 }
+export const getUsersThunkCreator = (currentPage, pageSize) => {
+  return  (dispatch) => {
+    dispatch(setIsFetching())
+    usersAPI.getUsers(currentPage, pageSize).then((data) => {
+      dispatch(setIsFetching());
+      dispatch(setUsers(data.items));
+      dispatch(setUsersCount(data.totalCount));
+    })
+  }
+}
+export const getFollow = (status, id) => {
+  return  (dispatch) => {
+    dispatch(followingInProgress(status, id))
+    if(status === true) {
+      usersAPI.followUser(id)
+      .then((data) => {
+        if (data.resultCode === 0) {
+          dispatch(followingInProgress(status, id));
+          dispatch(follow(id))
+        }
+      })
+    } else {
+      usersAPI.unFollowUser(id)
+      .then((data) => {
+        if (data.resultCode === 0) {
+          dispatch(followingInProgress(status, id));
+          dispatch(follow(id))
+        }
+      })
+    }
+
+  }
+}
+
+
 
 export default userReducer;
