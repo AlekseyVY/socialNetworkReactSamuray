@@ -30,7 +30,8 @@ let mapStateToProps = (state) => {
   return {
     profile: state.profileReducer.profile,
     isFetching: state.profileReducer.isFetching,
-    userId: state.profileReducer.userId
+    userId: state.profileReducer.userId,
+    isAuth: state.authReducer.isAuth
   }
 }
 
