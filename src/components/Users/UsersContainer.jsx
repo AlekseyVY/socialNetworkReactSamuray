@@ -1,27 +1,26 @@
 import User from "./User/User";
 import * as React from "react";
-import styles from './usersAPIContainer.module.css'
+import styles from './UsersContainer.module.css'
 import PageNumber from "./PageNumber/PageNumber";
 import Preloader from "../common/Preloader/Preloader";
-import {usersAPI} from "../../api/api";
+import {connect} from "react-redux";
+import {
+  getFollow,
+  getUsersThunkCreator,
+  pageChange,
+} from "../../Redux/userReducer";
 
 
-class UsersAPIComponent extends React.Component {
+class UsersContainer extends React.Component {
 
   componentDidMount() {
     this.props.getUsersThunkCreator(this.props.currentPage, this.props.pageSize);
   }
 
-  //pageCount = Math.ceil(this.props.totalUserCount / this.props.pageSize)
   pages = [1, 2, 3, 4, 5];
 
   onPageChanged = (pageNumber) => {
-    this.props.setIsFetching()
-    this.props.setPage(pageNumber)
-    usersAPI.getUsers(this.props.currentPage, this.props.pageSize).then((data) => {
-      this.props.setIsFetching()
-      this.props.setUsers(data.items)
-    })
+    this.props.pageChange(pageNumber, this.props.currentPage, this.props.pageSize)
     if (pageNumber >= this.pages[this.pages.length - 1]) {
       this.pages.push(pageNumber + 1)
       this.pages.shift()
@@ -35,7 +34,6 @@ class UsersAPIComponent extends React.Component {
 
   render() {
     let pages = this.pages
-
     return (
       <div className={styles.container}>
         {
@@ -75,4 +73,20 @@ class UsersAPIComponent extends React.Component {
 }
 
 
-export default UsersAPIComponent;
+
+let mapStateToProps = (state) => {
+  return {
+    users: state.userReducer.users,
+    pageSize: state.userReducer.pageSize,
+    currentPage: state.userReducer.currentPage,
+    followingProcess: state.userReducer.followingProcess
+  }
+}
+
+
+export default connect(mapStateToProps, {
+  getUsersThunkCreator,
+  getFollow,
+  pageChange
+})
+(UsersContainer)

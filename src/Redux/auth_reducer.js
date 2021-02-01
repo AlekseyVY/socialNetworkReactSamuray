@@ -1,3 +1,5 @@
+import {authAPI} from "../api/api";
+
 const SET_USER_DATA = 'SET_USER_DATA';
 const IS_FETCHING = 'IS_FETCHING';
 const LOGOUT = 'LOGOUT';
@@ -57,6 +59,20 @@ export const fetching = () => {
 export const logout = () => {
   return {
     type: 'LOGOUT'
+  }
+}
+
+
+export const authTHunk = () => {
+  return (dispatch) => {
+    dispatch(fetching())
+    authAPI.auth().then((data) => {
+      if(data.resultCode === 0) {
+        let {id, email, login} = data.data
+        dispatch(setUserData(id, email, login))
+      }
+      dispatch(fetching())
+    })
   }
 }
 

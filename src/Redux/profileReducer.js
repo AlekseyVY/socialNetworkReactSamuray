@@ -1,3 +1,5 @@
+import {profileAPI} from "../api/api";
+
 const ADD_POST = 'ADD-POST';
 const UPDATE_NEW_TEXT = 'UPDATE-NEW-TEXT';
 const SET_USER_PROFILE = 'SET_USER_PROFILE';
@@ -75,6 +77,17 @@ export const setUserId = (userId) => {
   return {
     type: SET_USER_ID,
     data: userId
+  }
+}
+
+
+export const profileThunk = (userId) => {
+  return (dispatch) => {
+    dispatch(setIsFetching())
+    profileAPI.getProfile(userId).then((data) => {
+      dispatch(setIsFetching())
+      dispatch(setProfile(data))
+    })
   }
 }
 

@@ -17,6 +17,8 @@ let initialState = {
 }
 
 
+
+
 const userReducer = (state = initialState, action) => {
   switch (action.type) {
     case FOLLOW: {
@@ -109,7 +111,7 @@ export const followingInProgress = (status, id) => {
   }
 }
 export const getUsersThunkCreator = (currentPage, pageSize) => {
-  return  (dispatch) => {
+  return (dispatch) => {
     dispatch(setIsFetching())
     usersAPI.getUsers(currentPage, pageSize).then((data) => {
       dispatch(setIsFetching());
@@ -119,9 +121,9 @@ export const getUsersThunkCreator = (currentPage, pageSize) => {
   }
 }
 export const getFollow = (status, id) => {
-  return  (dispatch) => {
+  return (dispatch) => {
     dispatch(followingInProgress(status, id))
-    if(status === true) {
+    if (status === true) {
       usersAPI.followUser(id)
       .then((data) => {
         if (data.resultCode === 0) {
@@ -138,10 +140,19 @@ export const getFollow = (status, id) => {
         }
       })
     }
-
   }
 }
 
+export const pageChange = (pageNumber, currentPage, pageSize) => {
+  return (dispatch) => {
+    dispatch(setIsFetching())
+    dispatch(setPage(pageNumber))
+    usersAPI.getUsers(currentPage, pageSize).then((data) => {
+      dispatch(setIsFetching())
+      dispatch(setUsers(data.items))
+    })
+  }
+}
 
 
 export default userReducer;
