@@ -9,6 +9,7 @@ import {
   getUsersThunkCreator,
   pageChange,
 } from "../../Redux/userReducer";
+import {withAuthRedirect} from "../HOC/withAuthRedirect";
 
 
 class UsersContainer extends React.Component {
@@ -83,10 +84,12 @@ let mapStateToProps = (state) => {
   }
 }
 
+let withRedirect =  withAuthRedirect(UsersContainer)
+
 
 export default connect(mapStateToProps, {
   getUsersThunkCreator,
   getFollow,
   pageChange
 })
-(UsersContainer)
+(withRedirect)

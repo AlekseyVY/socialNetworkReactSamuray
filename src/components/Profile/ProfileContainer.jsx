@@ -4,14 +4,13 @@ import {connect} from "react-redux";
 import {profileThunk} from "../../Redux/profileReducer";
 import Preloader from "../common/Preloader/Preloader";
 import {withRouter} from "react-router";
-
+import {withAuthRedirect} from "../HOC/withAuthRedirect";
 
 class ProfileContainer extends React.Component {
 
   componentDidMount() {
     this.props.profileThunk(this.props.match.params.userId)
   }
-
 
   render() {
     return (
@@ -31,12 +30,11 @@ let mapStateToProps = (state) => {
     profile: state.profileReducer.profile,
     isFetching: state.profileReducer.isFetching,
     userId: state.profileReducer.userId,
-    isAuth: state.authReducer.isAuth
   }
 }
 
-let withUrlDataContainerComponent = withRouter(ProfileContainer)
-
+let AuthRedirectComponent =  withAuthRedirect(ProfileContainer)
+let withUrlDataContainerComponent = withRouter(AuthRedirectComponent)
 
 export default connect(mapStateToProps, {
   profileThunk

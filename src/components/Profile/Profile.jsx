@@ -3,15 +3,9 @@ import React from 'react';
 import Character from "./Character/Character";
 import WallPaper from "./Wallpaper/WallPaper";
 import MyPostsContainer from "./MyPosts/MyPostsContainer";
-import {Redirect} from "react-router-dom";
 
 
-const Profile = ({profile, isAuth}) => {
-  if(!isAuth) {
-    return (
-      <Redirect to="/login" />
-    )
-  }
+const Profile = ({profile}) => {
 
   return (
     <>
