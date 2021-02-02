@@ -4,7 +4,7 @@ import Description from "./Description/Description";
 import mainProfImg from "../../../resources/img/main-prof.jpg";
 import ProfileStatus from "../ProfileStatus/ProfileStatus";
 
-const Character = ({profile}) => {
+const Character = ({profile, status, updateStatus}) => {
   return (
     <div>
       <div className={styles.char_info}>
@@ -12,7 +12,7 @@ const Character = ({profile}) => {
         <Description profile={profile}/>
       </div>
       <div>
-        <ProfileStatus status={'hello my friend'}/>
+        <ProfileStatus status={status} updateStatus={updateStatus}/>
       </div>
     </div>
   )

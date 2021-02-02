@@ -5,6 +5,7 @@ const UPDATE_NEW_TEXT = 'UPDATE-NEW-TEXT';
 const SET_USER_PROFILE = 'SET_USER_PROFILE';
 const SET_ISFETCHING = 'SET_ISFETCHING';
 const SET_USER_ID = 'SET_USER_ID';
+const SET_STATUS = 'SET_STATUS';
 
 let initialState = {
   posts: [
@@ -14,7 +15,8 @@ let initialState = {
   newPostText: '',
   profile: null,
   isFetching: false,
-  userId: 2
+  userId: 2,
+  status: ''
 }
 
 const profileReducer = (state = initialState, action) => {
@@ -54,6 +56,12 @@ const profileReducer = (state = initialState, action) => {
         userId: action.data
       }
     }
+    case SET_STATUS: {
+      return {
+        ...state,
+        status: action.data
+      }
+    }
     default:
       return state;
   }
@@ -77,6 +85,28 @@ export const setUserId = (userId) => {
   return {
     type: SET_USER_ID,
     data: userId
+  }
+}
+
+
+export const setStatus = (status) => {
+  return {
+    type: SET_STATUS,
+    data: status
+  }
+}
+
+export const getStatusThunk = (userId) => {
+  return (dispatch) => {
+    profileAPI.getStatus(userId).then((data) => {
+      dispatch(setStatus(data))
+    })
+  }
+}
+
+export const updateStatusThunk = (status) => {
+  return (dispatch) => {
+    profileAPI.updateStatus(status)
   }
 }
 
