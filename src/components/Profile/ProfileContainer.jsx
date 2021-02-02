@@ -14,9 +14,7 @@ class ProfileContainer extends React.Component {
     this.props.getStatusThunk(this.props.match.params.userId)
   }
 
-  componentDidUpdate() {
-    this.props.getStatusThunk(this.props.match.params.userId)
-  }
+
 
   render() {
     return (
