@@ -3,12 +3,15 @@ import {authAPI} from "../api/api";
 const SET_USER_DATA = 'SET_USER_DATA';
 const IS_FETCHING = 'IS_FETCHING';
 const LOGOUT = 'LOGOUT';
+const LOGIN = 'LOGIN';
 
 
 let initialState = {
   userId: null,
   email: null,
   login: null,
+  password: null,
+  rememberMe: false,
   isAuth: false,
   isFetching: false,
 }
@@ -37,6 +40,15 @@ const authReducer = (state = initialState, action) => {
         isAuth: false,
       }
     }
+    case LOGIN: {
+      return {
+        ...state,
+        login: action.data.login,
+        password: action.data.password,
+        rememberMe: action.data.rememberMe
+
+      }
+    }
     default:
       return state;
   }
@@ -59,6 +71,25 @@ export const fetching = () => {
 export const logout = () => {
   return {
     type: 'LOGOUT'
+  }
+}
+
+export const loginUser = (login, password, rememberMe) => {
+  console.log(login, password, rememberMe)
+  return {
+    type: 'LOGIN',
+    data: { login, password, rememberMe }
+  }
+}
+
+export const loginThunk = (login, password, rememberMe) => {
+
+  return (dispatch) => {
+    dispatch(loginUser(login, password, rememberMe))
+    authAPI.login(login, password, rememberMe)
+      .then((resp) => {
+        console.log(resp)
+      })
   }
 }
 
