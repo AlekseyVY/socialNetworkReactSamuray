@@ -45,5 +45,5 @@ export default compose(
     updateStatusThunk
   }),
   withRouter,
-  withAuthRedirect
+  withAuthRedirect,
 )(ProfileContainer)

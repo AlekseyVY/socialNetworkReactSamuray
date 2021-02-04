@@ -1,7 +1,6 @@
 import {profileAPI} from "../api/api";
 
-const ADD_POST = 'ADD-POST';
-const UPDATE_NEW_TEXT = 'UPDATE-NEW-TEXT';
+const ADD_POST = 'ADD_POST';
 const SET_USER_PROFILE = 'SET_USER_PROFILE';
 const SET_ISFETCHING = 'SET_ISFETCHING';
 const SET_USER_ID = 'SET_USER_ID';
@@ -12,10 +11,9 @@ let initialState = {
     {id: 1, message: 'This is my first generic post', likesCount: 0},
     {id: 2, message: 'This is my second generic post', likesCount: 45}
   ],
-  newPostText: '',
   profile: null,
   isFetching: false,
-  userId: 2,
+  userId: 14529,
   status: ''
 }
 
@@ -23,19 +21,13 @@ const profileReducer = (state = initialState, action) => {
   switch (action.type) {
     case ADD_POST: {
       let newPost = {
-        id: 5,
-        message: state.newPostText,
+        id: state.posts.length + 1,
+        message: action.data,
         likesCount: 0
       }
       return {
         ...state,
         posts: [...state.posts, newPost],
-      }
-    }
-    case UPDATE_NEW_TEXT: {
-      return {
-        ...state,
-        newPostText: action.data
       }
     }
     case SET_USER_PROFILE: {
@@ -95,6 +87,20 @@ export const setStatus = (status) => {
     data: status
   }
 }
+
+export const setNewPost = (post) => {
+  return {
+    type: ADD_POST,
+    data: post
+  }
+}
+
+export const newPost = (post) => {
+  return (dispatch) => {
+    dispatch(setNewPost(post))
+  }
+}
+
 
 export const getStatusThunk = (userId) => {
   return (dispatch) => {

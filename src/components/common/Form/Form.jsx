@@ -2,7 +2,7 @@ import styles from "./Form.module.css";
 import React from "react";
 
 
-const Form = ({newPostText, buttonAction, textAction, onPostChange, addPosts}) => {
+const Form = ({newPostText, buttonAction, textAction, onPostChange, addPosts , name}) => {
 
   let newPostElement = React.createRef()
 
@@ -25,6 +25,7 @@ const Form = ({newPostText, buttonAction, textAction, onPostChange, addPosts}) =
     </div>
   )
 }
+
 
 
 export default Form;

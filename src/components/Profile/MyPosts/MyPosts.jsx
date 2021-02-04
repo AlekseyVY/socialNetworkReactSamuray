@@ -1,17 +1,20 @@
 import React from 'react';
 import styles from './MyPosts.module.css'
 import Post from "./Post/Post";
-import Form from "../../common/Form/Form";
+import MyPostFormRedux from "./MyPostForm/MyPostForm";
 
 
-const MyPosts = ({posts, newPostText, onPostChange, addPosts}) => {
+const MyPosts = ({posts, newPost}) => {
+
+  const onSubmit = (formData) => {
+    newPost(formData.myPost)
+  }
 
   return (
     <>
       <div className={styles.create_post}>
         <h3>My posts</h3>
-        <Form buttonAction={'ADD-POST'} onPostChange={onPostChange} newPostText={newPostText} addPosts={addPosts}
-              textAction={'UPDATE-NEW-TEXT'}/>
+        <MyPostFormRedux onSubmit={onSubmit}/>
       </div>
       <div className={styles.post_area}>
         {
@@ -25,5 +28,6 @@ const MyPosts = ({posts, newPostText, onPostChange, addPosts}) => {
     </>
   )
 }
+
 
 export default MyPosts;

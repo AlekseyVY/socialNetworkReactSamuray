@@ -1,9 +1,9 @@
 import styles from './Messages.module.css'
 import Message from "./Message/Message";
-import Form from "../../../common/Form/Form";
+import MessageFormRedux from "./MessageForm/MessageFrom";
 
 
-const Messages = ({messageData, newMessage, onPostChange, addPosts}) => {
+const Messages = ({messageData, onSubmit}) => {
 
   return (
     <div className={styles.message_wrapper}>
@@ -14,8 +14,7 @@ const Messages = ({messageData, newMessage, onPostChange, addPosts}) => {
           )
         })
       }
-      <Form textAction={'UPDATE-NEW-DIALOG'} buttonAction={'ADD-DIALOG'} newPostText={newMessage}
-            onPostChange={onPostChange} addPosts={addPosts}/>
+      <MessageFormRedux onSubmit={onSubmit}/>
     </div>
   )
 }

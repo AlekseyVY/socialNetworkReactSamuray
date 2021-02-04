@@ -4,7 +4,11 @@ import Messages from "./Dialog/Messages/Messages";
 import React from "react";
 
 
-const Dialogs = ({props, onPostChange, addPosts}) => {
+const Dialogs = ({props, onPostChange, addDialogThunk}) => {
+
+  const onSubmit = (formData) => {
+    addDialogThunk(formData.message)
+  }
 
   return (
     <div className={styles.dialogs}>
@@ -19,7 +23,7 @@ const Dialogs = ({props, onPostChange, addPosts}) => {
       </div>
       <div>
         <Messages messageData={props.messageData} newMessage={props.newMessage} onPostChange={onPostChange}
-                  addPosts={addPosts}/>
+                  onSubmit={onSubmit}/>
       </div>
     </div>
   )

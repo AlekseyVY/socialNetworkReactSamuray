@@ -1,30 +1,21 @@
 import Dialogs from "./Dialogs";
-import {formAction} from "../../Redux/actions";
 import {connect} from "react-redux";
 import {withAuthRedirect} from "../HOC/withAuthRedirect";
 import {compose} from "redux";
+import {addDialogThunk} from "../../Redux/messageReducer";
 
 
 let mapStateToProps = (state) => {
   return {
-    props: state.messageReducer.messagesPage
+    props: state.messageReducer
   }
 }
 
-let mapDispatchToProps = (dispatch) => {
-  return {
-    onPostChange: (textAction, text) => {
-      dispatch(formAction(textAction, text))
-    },
-    addPosts: (buttonAction, textAction, newPostText) => {
-      dispatch(formAction(buttonAction, newPostText))
-      dispatch(formAction(textAction))
-    }
-  }
-}
 
 
 export default compose(
-  connect(mapStateToProps, mapDispatchToProps),
+  connect(mapStateToProps, {
+    addDialogThunk
+  }),
   withAuthRedirect
 )(Dialogs);
