@@ -1,0 +1,10 @@
+
+.error input
+{
+    border: solid 2px red;
+}
+
+.error span
+{
+    color: red;
+}
