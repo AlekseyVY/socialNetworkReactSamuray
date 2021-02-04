@@ -75,7 +75,6 @@ export const logout = () => {
 }
 
 export const loginUser = (login, password, rememberMe) => {
-  console.log(login, password, rememberMe)
   return {
     type: 'LOGIN',
     data: { login, password, rememberMe }
@@ -89,7 +88,22 @@ export const loginThunk = (login, password, rememberMe) => {
     authAPI.login(login, password, rememberMe)
       .then((resp) => {
         console.log(resp)
+        if(resp.resultCode === 0){
+          dispatch(authTHunk())
+        } else {
+          alert(resp.messages)
+        }
       })
+  }
+}
+
+export const logoutThunk = () => {
+  return (dispatch) => {
+    authAPI.logout().then((resp) => {
+      if(resp.resultCode === 0){
+        dispatch(logout())
+      }
+    })
   }
 }
 
