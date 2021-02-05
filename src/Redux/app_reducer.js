@@ -1,6 +1,4 @@
 import {authAPI} from "../api/api";
-import {profileThunk} from "./profileReducer";
-import {setAuth} from "./auth_reducer";
 
 const SET_INITIALIZED = 'SET_INITIALIZED';
 
@@ -34,7 +32,6 @@ export const initThunk = () => {
     let promise = authAPI.auth()
     Promise.all([promise]).then(() => {
       dispatch(initialize(true))
-      dispatch(setAuth())
     })
   }
 }

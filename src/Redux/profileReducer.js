@@ -117,7 +117,7 @@ export const updateStatusThunk = (status) => {
 }
 
 
-export const profileThunk = (userId) => {
+export const profileThunk = (userId = 14529) => {
   return (dispatch) => {
     dispatch(setIsFetching())
     profileAPI.getProfile(userId).then((data) => {

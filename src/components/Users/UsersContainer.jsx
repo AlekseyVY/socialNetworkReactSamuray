@@ -11,6 +11,7 @@ import {
 } from "../../Redux/userReducer";
 import {withAuthRedirect} from "../HOC/withAuthRedirect";
 import {compose} from "redux";
+import {currentPage, followingProcess, getPageSize, getUsers} from "../../Redux/usersSelectors";
 
 
 class UsersContainer extends React.Component {
@@ -78,10 +79,10 @@ class UsersContainer extends React.Component {
 
 let mapStateToProps = (state) => {
   return {
-    users: state.userReducer.users,
-    pageSize: state.userReducer.pageSize,
-    currentPage: state.userReducer.currentPage,
-    followingProcess: state.userReducer.followingProcess
+    users: getUsers(state),
+    pageSize: getPageSize(state),
+    currentPage: currentPage(state),
+    followingProcess: followingProcess(state)
   }
 }
 
