@@ -2,17 +2,18 @@
 
 
 export const getUsers = (state) => {
-  return state.useReducer.users
+  return state.userReducer.users
 }
 
 export const getPageSize = (state) => {
-  return state.useReducer.pageSize
+  return state.userReducer.pageSize
 }
 
 export const currentPage = (state) => {
-  return state.useReducer.currentPage
+  return state.userReducer.currentPage
 }
 
 export const followingProcess = (state) => {
-  return state.useReducer.followingProcess
+  return state.userReducer.followingProcess
+
 }
