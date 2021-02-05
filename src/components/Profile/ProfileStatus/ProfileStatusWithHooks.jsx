@@ -19,6 +19,7 @@ const ProfileStatusWithHooks = ({status, updateStatus}) => {
   const onBlurFunc = () => {
     setEditMode(false)
     updateStatus(state)
+
   }
 
   return (
