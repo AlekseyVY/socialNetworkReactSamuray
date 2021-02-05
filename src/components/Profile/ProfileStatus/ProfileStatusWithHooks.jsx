@@ -1,11 +1,15 @@
 import styles from './profileStatus.module.css'
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 
 
 
 const ProfileStatusWithHooks = ({status, updateStatus}) => {
   const [state, setState] = useState(status)
   const [editMode, setEditMode] = useState(false)
+
+  useEffect(() => {
+    setState(status)
+  },[status])
 
   const changeValue = (e) => {
     e.preventDefault()
