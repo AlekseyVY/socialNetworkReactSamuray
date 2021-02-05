@@ -1,10 +1,12 @@
 import {authAPI} from "../api/api";
 import {stopSubmit} from "redux-form";
+import {profileThunk} from "./profileReducer";
 
 const SET_USER_DATA = 'SET_USER_DATA';
 const IS_FETCHING = 'IS_FETCHING';
 const LOGOUT = 'LOGOUT';
 const LOGIN = 'LOGIN';
+const SET_AUTH = 'SET_AUTH';
 
 
 let initialState = {
@@ -19,6 +21,12 @@ let initialState = {
 
 const authReducer = (state = initialState, action) => {
   switch (action.type) {
+    case SET_AUTH: {
+      return {
+        ...state,
+        isAuth: true
+      }
+    }
     case SET_USER_DATA: {
       return {
         ...state,
@@ -75,6 +83,12 @@ export const logout = () => {
   }
 }
 
+export const setAuth = () => {
+  return {
+    type: 'SET_AUTH'
+  }
+}
+
 export const loginUser = (login, password, rememberMe) => {
   return {
     type: 'LOGIN',
@@ -90,6 +104,7 @@ export const loginThunk = (login, password, rememberMe) => {
       .then((resp) => {
         if(resp.resultCode === 0){
           dispatch(authTHunk())
+          dispatch(profileThunk(resp.data.userId))
         } else {
           let action = stopSubmit("login", {_error: resp.messages});
           dispatch(action)

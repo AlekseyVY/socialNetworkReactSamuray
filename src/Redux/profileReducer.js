@@ -13,7 +13,7 @@ let initialState = {
   ],
   profile: null,
   isFetching: false,
-  userId: 14529,
+  userId: null,
   status: ''
 }
 

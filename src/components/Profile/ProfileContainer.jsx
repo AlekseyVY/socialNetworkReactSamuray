@@ -6,15 +6,16 @@ import Preloader from "../common/Preloader/Preloader";
 import {withRouter} from "react-router";
 import {withAuthRedirect} from "../HOC/withAuthRedirect";
 import {compose} from "redux";
+import {authTHunk} from "../../Redux/auth_reducer";
 
 class ProfileContainer extends React.Component {
 
   componentDidMount() {
-    this.props.profileThunk(this.props.match.params.userId)
-    this.props.getStatusThunk(this.props.match.params.userId)
+    if (this.props.match.params.userId) {
+      this.props.profileThunk(this.props.match.params.userId)
+      this.props.getStatusThunk(this.props.match.params.userId)
+    }
   }
-
-
 
   render() {
     return (
@@ -42,7 +43,8 @@ export default compose(
   connect(mapStateToProps, {
     profileThunk,
     getStatusThunk,
-    updateStatusThunk
+    updateStatusThunk,
+    authTHunk
   }),
   withRouter,
   withAuthRedirect,

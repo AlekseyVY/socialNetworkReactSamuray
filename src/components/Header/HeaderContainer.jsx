@@ -7,9 +7,6 @@ import {authTHunk, logoutThunk} from "../../Redux/auth_reducer";
 
 class HeaderContainer extends React.Component {
 
-  componentDidMount() {
-    this.props.authTHunk()
-  }
 
   render(){
     return (
@@ -29,6 +26,5 @@ let mapStateToProps = (state) => {
 
 
 export default connect(mapStateToProps, {
-  logoutThunk,
-  authTHunk
+  logoutThunk
 })(HeaderContainer);
