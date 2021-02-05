@@ -4,11 +4,12 @@ import Post from "./Post/Post";
 import MyPostFormRedux from "./MyPostForm/MyPostForm";
 
 
-const MyPosts = ({posts, newPost}) => {
+const MyPosts = React.memo( ({posts, newPost}) => {
 
   const onSubmit = (formData) => {
     newPost(formData.myPost)
   }
+
 
   return (
     <>
@@ -27,7 +28,7 @@ const MyPosts = ({posts, newPost}) => {
       </div>
     </>
   )
-}
+})
 
 
 export default MyPosts;
