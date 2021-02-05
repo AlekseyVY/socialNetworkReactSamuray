@@ -3,6 +3,7 @@ import Avatar from "./Avatar/Avatar";
 import Description from "./Description/Description";
 import mainProfImg from "../../../resources/img/main-prof.jpg";
 import ProfileStatus from "../ProfileStatus/ProfileStatus";
+import ProfileStatusWithHooks from "../ProfileStatus/ProfileStatusWithHooks";
 
 const Character = ({profile, status, updateStatus}) => {
   return (
@@ -12,7 +13,7 @@ const Character = ({profile, status, updateStatus}) => {
         <Description profile={profile}/>
       </div>
       <div>
-        <ProfileStatus status={status} updateStatus={updateStatus}/>
+        <ProfileStatusWithHooks status={status} updateStatus={updateStatus}/>
       </div>
     </div>
   )
