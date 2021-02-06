@@ -32,7 +32,6 @@ class ProfileContainer extends React.Component {
 
 let mapStateToProps = (state) => {
   return {
-    
     profile: state.profileReducer.profile,
     isFetching: state.profileReducer.isFetching,
     userId: state.profileReducer.userId,
