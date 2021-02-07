@@ -1,19 +1,23 @@
+import React from "react";
 import styles from './App.module.css';
 import {Route, withRouter} from 'react-router-dom'
 import News from "./components/News/News";
 import Music from "./components/Music/Music";
 import Settings from "./components/Settings/Settings";
-import DialogsContainer from "./components/Dialogs/DialogsContainer";
-import NavBarContainer from "./components/NavBar/NavBarContainer";
-import UsersContainer from "./components/Users/UsersContainer";
-import ProfileContainer from "./components/Profile/ProfileContainer";
-import HeaderContainer from "./components/Header/HeaderContainer";
-import LoginContainer from "./components/Login/LoginContainer";
 import {Component} from "react";
 import {connect} from "react-redux";
 import {compose} from "redux";
 import {initThunk} from "./Redux/app_reducer";
 import Preloader from "./components/common/Preloader/Preloader";
+import SuspenseHOC from "./components/HOC/SuspenseHOC";
+
+const DialogsContainer = React.lazy(() => import("./components/Dialogs/DialogsContainer"));
+const NavBarContainer = React.lazy(() => import("./components/NavBar/NavBarContainer"));
+const UsersContainer = React.lazy(() => import("./components/Users/UsersContainer"));
+const ProfileContainer = React.lazy(() => import("./components/Profile/ProfileContainer"));
+const HeaderContainer = React.lazy(() => import("./components/Header/HeaderContainer"));
+const LoginContainer = React.lazy(() => import("./components/Login/LoginContainer"));
+
 
 class App extends Component {
 
@@ -22,27 +26,28 @@ class App extends Component {
   }
 
   render() {
-    if(!this.props.initialised){
+    if (!this.props.initialised) {
       return (
-        <Preloader />
+        <Preloader/>
       )
     }
     return (
       <div className={styles.app_wrapper}>
-        <HeaderContainer/>
-        <NavBarContainer/>
+        {SuspenseHOC(<HeaderContainer/>)}
+        {SuspenseHOC(<NavBarContainer/>)}
         <div className={styles.container}>
           <Route
             path={'/dialogs'}
-            render={() => <DialogsContainer/>}
+            render={() => SuspenseHOC(<DialogsContainer/>)}
           />
           <Route
             path={'/profile/:userId?'}
-            render={() => <ProfileContainer/>}
+            render={() => SuspenseHOC(<ProfileContainer/>)}
           />
           <Route
             path={'/users'}
-            render={() => <UsersContainer/>}
+            render={() => SuspenseHOC(<UsersContainer/>)
+            }
           />
           <Route
             path={'/news'}
@@ -58,7 +63,7 @@ class App extends Component {
           />
           <Route
             path={'/login'}
-            render={() => <LoginContainer/>}
+            render={() => SuspenseHOC(<LoginContainer/>)}
           />
         </div>
       </div>
