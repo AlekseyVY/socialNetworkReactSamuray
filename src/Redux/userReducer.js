@@ -17,8 +17,6 @@ let initialState = {
 }
 
 
-
-
 const userReducer = (state = initialState, action) => {
   switch (action.type) {
     case FOLLOW: {
@@ -114,9 +112,9 @@ export const getUsersThunkCreator = (currentPage, pageSize) => {
   return async (dispatch) => {
     dispatch(setIsFetching())
     const data = await usersAPI.getUsers(currentPage, pageSize)
-      dispatch(setIsFetching());
-      dispatch(setUsers(data.items));
-      dispatch(setUsersCount(data.totalCount));
+    dispatch(setIsFetching());
+    dispatch(setUsers(data.items));
+    dispatch(setUsersCount(data.totalCount));
   }
 }
 export const getFollow = (status, id) => {
@@ -124,16 +122,16 @@ export const getFollow = (status, id) => {
     dispatch(followingInProgress(status, id))
     if (status === true) {
       const data = await usersAPI.followUser(id)
-        if (data.resultCode === 0) {
-          dispatch(followingInProgress(status, id));
-          dispatch(follow(id))
-        }
+      if (data.resultCode === 0) {
+        dispatch(followingInProgress(status, id));
+        dispatch(follow(id))
+      }
     } else {
       const data = await usersAPI.unFollowUser(id)
-        if (data.resultCode === 0) {
-          dispatch(followingInProgress(status, id));
-          dispatch(follow(id))
-        }
+      if (data.resultCode === 0) {
+        dispatch(followingInProgress(status, id));
+        dispatch(follow(id))
+      }
     }
   }
 }
@@ -143,8 +141,8 @@ export const pageChange = (pageNumber, currentPage, pageSize) => {
     dispatch(setIsFetching())
     dispatch(setPage(pageNumber))
     const data = await usersAPI.getUsers(currentPage, pageSize)
-      dispatch(setIsFetching())
-      dispatch(setUsers(data.items))
+    dispatch(setIsFetching())
+    dispatch(setUsers(data.items))
   }
 }
 

@@ -31,10 +31,9 @@ export const initThunk = () => {
   return async (dispatch) => {
     let promise = await authAPI.auth()
     await Promise.all([promise])
-      dispatch(initialize(true))
+    dispatch(initialize(true))
   }
 }
-
 
 
 export default appReducer;

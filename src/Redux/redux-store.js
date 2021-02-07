@@ -5,7 +5,7 @@ import messageReducer from "./messageReducer";
 import userReducer from "./userReducer";
 import authReducer from "./auth_reducer";
 import thunk from "redux-thunk";
-import { reducer as formReducer } from 'redux-form'
+import {reducer as formReducer} from 'redux-form'
 import appReducer from "./app_reducer";
 
 

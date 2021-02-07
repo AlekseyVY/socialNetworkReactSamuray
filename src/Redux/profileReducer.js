@@ -105,7 +105,7 @@ export const newPost = (post) => {
 export const getStatusThunk = (userId) => {
   return async (dispatch) => {
     const data = await profileAPI.getStatus(userId)
-      dispatch(setStatus(data))
+    dispatch(setStatus(data))
   }
 }
 
@@ -120,8 +120,8 @@ export const profileThunk = (userId = 14529) => {
   return async (dispatch) => {
     dispatch(setIsFetching())
     const data = await profileAPI.getProfile(userId)
-      dispatch(setIsFetching())
-      dispatch(setProfile(data))
+    dispatch(setIsFetching())
+    dispatch(setProfile(data))
   }
 }
 

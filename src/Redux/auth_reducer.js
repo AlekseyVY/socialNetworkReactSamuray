@@ -92,7 +92,7 @@ export const setAuth = () => {
 export const loginUser = (login, password, rememberMe) => {
   return {
     type: 'LOGIN',
-    data: { login, password, rememberMe }
+    data: {login, password, rememberMe}
   }
 }
 
@@ -101,22 +101,22 @@ export const loginThunk = (login, password, rememberMe) => {
   return async (dispatch) => {
     dispatch(loginUser(login, password, rememberMe))
     const resp = await authAPI.login(login, password, rememberMe)
-        if(resp.resultCode === 0){
-          dispatch(authTHunk())
-          dispatch(profileThunk(resp.data.userId))
-        } else {
-          let action = stopSubmit("login", {_error: resp.messages});
-          dispatch(action)
-        }
+    if (resp.resultCode === 0) {
+      dispatch(authTHunk())
+      dispatch(profileThunk(resp.data.userId))
+    } else {
+      let action = stopSubmit("login", {_error: resp.messages});
+      dispatch(action)
+    }
   }
 }
 
 export const logoutThunk = () => {
   return async (dispatch) => {
     const resp = await authAPI.logout()
-      if(resp.resultCode === 0){
-        dispatch(logout())
-      }
+    if (resp.resultCode === 0) {
+      dispatch(logout())
+    }
   }
 }
 
@@ -125,11 +125,11 @@ export const authTHunk = () => {
   return async (dispatch) => {
     dispatch(fetching())
     const data = await authAPI.auth()
-      if(data.resultCode === 0) {
-        let {id, email, login} = data.data
-        dispatch(setUserData(id, email, login))
-      }
-      dispatch(fetching())
+    if (data.resultCode === 0) {
+      let {id, email, login} = data.data
+      dispatch(setUserData(id, email, login))
+    }
+    dispatch(fetching())
   }
 }
 
