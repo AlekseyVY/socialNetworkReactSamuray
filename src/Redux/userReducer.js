@@ -111,46 +111,40 @@ export const followingInProgress = (status, id) => {
   }
 }
 export const getUsersThunkCreator = (currentPage, pageSize) => {
-  return (dispatch) => {
+  return async (dispatch) => {
     dispatch(setIsFetching())
-    usersAPI.getUsers(currentPage, pageSize).then((data) => {
+    const data = await usersAPI.getUsers(currentPage, pageSize)
       dispatch(setIsFetching());
       dispatch(setUsers(data.items));
       dispatch(setUsersCount(data.totalCount));
-    })
   }
 }
 export const getFollow = (status, id) => {
-  return (dispatch) => {
+  return async (dispatch) => {
     dispatch(followingInProgress(status, id))
     if (status === true) {
-      usersAPI.followUser(id)
-      .then((data) => {
+      const data = await usersAPI.followUser(id)
         if (data.resultCode === 0) {
           dispatch(followingInProgress(status, id));
           dispatch(follow(id))
         }
-      })
     } else {
-      usersAPI.unFollowUser(id)
-      .then((data) => {
+      const data = await usersAPI.unFollowUser(id)
         if (data.resultCode === 0) {
           dispatch(followingInProgress(status, id));
           dispatch(follow(id))
         }
-      })
     }
   }
 }
 
 export const pageChange = (pageNumber, currentPage, pageSize) => {
-  return (dispatch) => {
+  return async (dispatch) => {
     dispatch(setIsFetching())
     dispatch(setPage(pageNumber))
-    usersAPI.getUsers(currentPage, pageSize).then((data) => {
+    const data = await usersAPI.getUsers(currentPage, pageSize)
       dispatch(setIsFetching())
       dispatch(setUsers(data.items))
-    })
   }
 }
 

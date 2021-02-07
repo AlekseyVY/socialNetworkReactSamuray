@@ -98,10 +98,9 @@ export const loginUser = (login, password, rememberMe) => {
 
 export const loginThunk = (login, password, rememberMe) => {
 
-  return (dispatch) => {
+  return async (dispatch) => {
     dispatch(loginUser(login, password, rememberMe))
-    authAPI.login(login, password, rememberMe)
-      .then((resp) => {
+    const resp = await authAPI.login(login, password, rememberMe)
         if(resp.resultCode === 0){
           dispatch(authTHunk())
           dispatch(profileThunk(resp.data.userId))
@@ -109,31 +108,28 @@ export const loginThunk = (login, password, rememberMe) => {
           let action = stopSubmit("login", {_error: resp.messages});
           dispatch(action)
         }
-      })
   }
 }
 
 export const logoutThunk = () => {
-  return (dispatch) => {
-    authAPI.logout().then((resp) => {
+  return async (dispatch) => {
+    const resp = await authAPI.logout()
       if(resp.resultCode === 0){
         dispatch(logout())
       }
-    })
   }
 }
 
 
 export const authTHunk = () => {
-  return (dispatch) => {
+  return async (dispatch) => {
     dispatch(fetching())
-    authAPI.auth().then((data) => {
+    const data = await authAPI.auth()
       if(data.resultCode === 0) {
         let {id, email, login} = data.data
         dispatch(setUserData(id, email, login))
       }
       dispatch(fetching())
-    })
   }
 }
 

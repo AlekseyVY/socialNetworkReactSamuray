@@ -43,7 +43,7 @@ export const addDialog = (dialog) => {
 }
 
 export const addDialogThunk = (dialog) => {
-  return (dispatch) => {
+  return async (dispatch) => {
     dispatch(addDialog(dialog))
   }
 }

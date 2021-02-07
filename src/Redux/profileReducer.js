@@ -103,27 +103,25 @@ export const newPost = (post) => {
 
 
 export const getStatusThunk = (userId) => {
-  return (dispatch) => {
-    profileAPI.getStatus(userId).then((data) => {
+  return async (dispatch) => {
+    const data = await profileAPI.getStatus(userId)
       dispatch(setStatus(data))
-    })
   }
 }
 
 export const updateStatusThunk = (status) => {
-  return (dispatch) => {
-    profileAPI.updateStatus(status)
+  return async (dispatch) => {
+    await profileAPI.updateStatus(status)
   }
 }
 
 
 export const profileThunk = (userId = 14529) => {
-  return (dispatch) => {
+  return async (dispatch) => {
     dispatch(setIsFetching())
-    profileAPI.getProfile(userId).then((data) => {
+    const data = await profileAPI.getProfile(userId)
       dispatch(setIsFetching())
       dispatch(setProfile(data))
-    })
   }
 }
 

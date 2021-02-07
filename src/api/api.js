@@ -9,69 +9,51 @@ const instance = axios.create({
 })
 
 export const usersAPI = {
-  getUsers: (pageNumber = 1, pageSize = 5) => {
-    return instance.get(`users?page=${pageNumber}&count=${pageSize}`)
-    .then(resp => {
+  getUsers: async (pageNumber = 1, pageSize = 5) => {
+    const resp = await instance.get(`users?page=${pageNumber}&count=${pageSize}`)
       return resp.data
-    })
   },
-  followUser: (id) => {
-    return instance.post(`follow/${id}`,{},)
-    .then(resp => {
+  followUser: async (id) => {
+    const resp = await instance.post(`follow/${id}`,{},)
       return resp.data
-    })
   },
-  unFollowUser: (id) => {
-    return instance.delete(`follow/${id}`)
-    .then(resp => {
+  unFollowUser: async (id) => {
+    const resp = await instance.delete(`follow/${id}`)
       return resp.data
-    })
   }
 }
 
 export const authAPI = {
-  auth: () => {
-    return instance.get(`auth/me`)
-    .then(resp => {
+  auth: async () => {
+    const resp = await instance.get(`auth/me`)
       return resp.data
-    })
   },
-  login: (login, password, rememberMe) => {
-    return instance.post(`auth/login`, {
+  login: async (login, password, rememberMe) => {
+    const resp = await instance.post(`auth/login`, {
       email: login,
       password: password,
       rememberMe: rememberMe
     })
-      .then(resp => {
         return resp.data
-      })
   },
-  logout: () => {
-    return instance.delete(`auth/login`)
-    .then((resp) => {
+  logout: async () => {
+    const resp = await instance.delete(`auth/login`)
       return resp.data
-    })
   }
 }
 
 export const profileAPI = {
-  getProfile: (userId = 14529) => {
-    return instance.get(`profile/${userId}`)
-    .then(resp => {
+  getProfile: async (userId = 14529) => {
+     let resp = await instance.get(`profile/${userId}`)
       return resp.data
-    })
   },
-  getStatus: (userId = 14529) => {
-    return instance.get(`profile/status/${userId}`)
-    .then(resp => {
+  getStatus: async (userId = 14529) => {
+    const resp = await instance.get(`profile/status/${userId}`)
       return resp.data
-    })
   },
-  updateStatus: (status) => {
-    return instance.put(`profile/status`, {status: status})
-    .then(resp => {
+  updateStatus: async (status) => {
+    const resp = await instance.put(`profile/status`, {status: status})
       return resp
-    })
   }
 }
 

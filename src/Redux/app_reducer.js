@@ -28,11 +28,10 @@ export const initialize = (status) => {
 }
 
 export const initThunk = () => {
-  return (dispatch) => {
-    let promise = authAPI.auth()
-    Promise.all([promise]).then(() => {
+  return async (dispatch) => {
+    let promise = await authAPI.auth()
+    await Promise.all([promise])
       dispatch(initialize(true))
-    })
   }
 }
 
