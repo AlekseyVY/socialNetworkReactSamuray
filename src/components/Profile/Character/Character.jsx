@@ -4,11 +4,12 @@ import Description from "./Description/Description";
 import mainProfImg from "../../../resources/img/main-prof.jpg";
 import ProfileStatusWithHooks from "../ProfileStatus/ProfileStatusWithHooks";
 
-const Character = ({profile, status, updateStatus}) => {
+const Character = ({profile, status, updateStatus, isOwner}) => {
   return (
     <div>
       <div className={styles.char_info}>
         <Avatar photo={profile.photos.large || mainProfImg}/>
+        {isOwner && <input type={"file"}/>}
         <Description profile={profile}/>
       </div>
       <div>

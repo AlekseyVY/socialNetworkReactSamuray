@@ -10,10 +10,19 @@ import {authTHunk} from "../../Redux/auth_reducer";
 
 class ProfileContainer extends React.Component {
 
-  componentDidMount() {
+  refreshProfile(){
     if (this.props.match.params.userId) {
       this.props.profileThunk(this.props.match.params.userId)
       this.props.getStatusThunk(this.props.match.params.userId)
+    }
+  }
+
+  componentDidMount() {
+    this.refreshProfile()
+  }
+  componentDidUpdate(prevProps, prevState, snapshot) {
+    if(this.props.match.params.userId !== prevProps.match.params.userId){
+      this.refreshProfile()
     }
   }
 
